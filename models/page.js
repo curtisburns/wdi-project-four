@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const pageSchema = mongoose.Schema({
+const pageSchema = new mongoose.Schema({
   templateNumber: {type: Number, required: true },
   videoUrl: String,
   imageUrl: String,

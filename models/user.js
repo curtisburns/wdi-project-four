@@ -12,8 +12,6 @@ const userSchema = new mongoose.Schema({
   coursesTaken: [{ type: mongoose.Schema.ObjectId, ref: 'Course'}],
   currentCourse: { type: mongoose.Schema.ObjectId, ref: 'Course' },
   currentPage: { type: mongoose.Schema.ObjectId, ref: 'Page' }
-
-
 });
 
 userSchema.plugin(require('mongoose-unique-validator'));
