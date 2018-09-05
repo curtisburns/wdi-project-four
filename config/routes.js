@@ -26,13 +26,13 @@ Router.route('/courses')
   .post(coursesController.create);
 
 Router.route('/courses/:courseId')
-  .show(coursesController.show)
+  .get(coursesController.show)
   .put(coursesController.update)
   .delete(coursesController.delete);
 
 Router.route('users/userId')
-  .show(usersController.show)
+  .get(usersController.show)
   .put(usersController.update)
   .delete(usersController.delete);
-  
+
 module.exports = Router;

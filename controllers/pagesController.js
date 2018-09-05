@@ -1,4 +1,5 @@
 const Page = require('../models/page');
+const Course = require('../models/course');
 
 function pagesIndex(req, res, next) {
   Page.find()
@@ -12,8 +13,19 @@ function pagesShow(req, res, next) {
     .catch(next);
 }
 
+// Need to determine exactly what data to send back.
 function pagesCreate(req, res, next) {
+  let pageId;
   Page.create(req.body)
+    .then(page => {
+      pageId = page._id;
+      return Course.findById(req.params.courseId);
+    })
+    .then(course => {
+      course.pages.push(pageId);
+      return course.save();
+    })
+    .then(() => Page.findById(pageId))
     .then(page => res.json(page))
     .catch(next);
 }
@@ -27,8 +39,14 @@ function pagesUpdate(req, res, next) {
 }
 
 function pagesDelete(req, res, next) {
+  let pageId;
   Page.findById(req.params.pageId)
     .then(page => page.remove())
+    .then(() => Course.findById(req.params.courseId))
+    .then((course) => {
+      course.pages = course.pages.filter(page => page.toString() !== pageId);
+      return course.save();
+    })
     .then(() => res.sendStatus(204)) // No content
     .catch(next);
 }

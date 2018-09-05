@@ -1,4 +1,5 @@
-const User = require('../models/userData');
+// TODO: Determine what needs to be populated
+const User = require('../models/user');
 
 function usersIndex(req, res, next) {
   User.find()
