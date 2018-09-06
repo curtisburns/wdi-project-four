@@ -23,7 +23,7 @@ function register(req, res, next) {
 }
 
 function createAndSendToken(user, res, message) {
-  const token = jwt.sign({ sub: user._id }, secret, { expiresIn: '6h' });
+  const token = jwt.sign({ sub: user._id, username: user.username }, secret, { expiresIn: '6h' });
   res.send({ token, message });
 }
 

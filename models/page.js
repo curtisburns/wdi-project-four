@@ -4,7 +4,10 @@ const pageSchema = new mongoose.Schema({
   templateNumber: {type: Number, required: true },
   videoUrl: String,
   imageUrl: String,
-  content: [{ type: String }]
+  elements: [{
+    type: String,
+    content: String
+  }]
 });
 
 module.exports = mongoose.model('Page', pageSchema);
