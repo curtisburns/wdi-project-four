@@ -17,6 +17,7 @@ function getUserIdFromToken(req) {
 
 function coursesIndex(req, res, next) {
   Course.find()
+    .populate('createdBy')
     .then(courses => res.json(courses))
     .catch(next);
 }

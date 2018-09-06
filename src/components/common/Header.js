@@ -14,16 +14,19 @@ class Header extends React.Component {
   }
   render() {
     return(
-      <header className="navbar">
+      <header className="navbar is-fixed-top">
         <Link className="navbar-item" to="/browsecourses">
           <label htmlFor="searchTerm" className="label">Browse courses</label>
         </Link>
         <input style={{width: 200}}className="input" name="searchTerm"/>
-        {!Auth.isAuthenticated() &&  <Link className="navbar-item" to="/auth/register">Register</Link>}
-        {!Auth.isAuthenticated() &&  <Link className="navbar-item" to="/auth/login">Log in</Link>}
-        {Auth.isAuthenticated() &&  <Link className="navbar-item" to="#">Build a course</Link>}
-        {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>Log out</a> }
-        {Auth.isAuthenticated() &&  <Link className="navbar-item"  to="#">{Auth.currentUsername()}</Link> }
+        <div className="navbar-end">
+
+          {!Auth.isAuthenticated() &&  <Link className="navbar-item" to="/auth/register">Register</Link>}
+          {!Auth.isAuthenticated() &&  <Link className="navbar-item" to="/auth/login">Log in</Link>}
+          {Auth.isAuthenticated() &&  <Link className="navbar-item" to="#">Build a course</Link>}
+          {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>Log out</a> }
+          {Auth.isAuthenticated() &&  <Link className="navbar-item"  to="#">{Auth.currentUsername()}</Link> }
+        </div>
 
       </header>
     );
