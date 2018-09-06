@@ -3,13 +3,13 @@ const Course = require('../models/course');
 
 function pagesIndex(req, res, next) {
   Page.find()
-    .then(pages => res.send(pages))
+    .then(pages => res.json(pages))
     .catch(next);
 }
 
 function pagesShow(req, res, next) {
   Page.findById(req.params.pageId)
-    .then(page => res.send(page))
+    .then(page => res.json(page))
     .catch(next);
 }
 

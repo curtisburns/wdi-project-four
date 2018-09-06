@@ -29,8 +29,11 @@ Router.route('/courses/:courseId')
   .get(coursesController.show)
   .put(coursesController.update)
   .delete(coursesController.delete);
+// Users
+Router.route('/users')
+  .get(usersController.index);
 
-Router.route('users/userId')
+Router.route('/users/:userId')
   .get(usersController.show)
   .put(usersController.update)
   .delete(usersController.delete);

@@ -9,16 +9,16 @@ function login(req, res, next) {
   })
     .then(user => {
       if (!user || !user.validatePassword(req.body.password)) {
-        return res.status(401).json({ message: 'Unauthorised! '});
+        return res.status(401).json({ message: 'Unauthorised!'});
       }
-      createAndSendToken(user, res, { message: `Welcome back ${user.username}!` });
+      createAndSendToken(user, res, `Welcome back ${user.username}!`);
     })
     .catch(next);
 }
 
 function register(req, res, next) {
   User.create(req.body)
-    .then(user => createAndSendToken(user, res, { message: `User (${user.username}) has successfully registered!`}))
+    .then(user => createAndSendToken(user, res, `User (${user.username}) has successfully registered!`))
     .catch(next);
 }
 

@@ -17,13 +17,13 @@ function getUserIdFromToken(req) {
 
 function coursesIndex(req, res, next) {
   Course.find()
-    .then(courses => res.send(courses))
+    .then(courses => res.json(courses))
     .catch(next);
 }
 
 function coursesShow(req, res, next) {
   Course.findById(req.params.courseId)
-    .then(course => res.send(course))
+    .then(course => res.json(course))
     .catch(next);
 }
 
@@ -34,7 +34,7 @@ function coursesCreate(req, res, next) {
   Course.create(req.body)
     .then(course => {
       courseId = course._id;
-      course.createdBy.push(currentUserId);
+      course.createdBy = currentUserId;
       return course.save();
     })
     .then(() => User.findById(currentUserId))
