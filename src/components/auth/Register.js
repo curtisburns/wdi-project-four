@@ -1,7 +1,7 @@
 // TODO: Hide/Show password
 import React from 'react';
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Components
 import FormField from '../common/FormField';
@@ -117,10 +117,10 @@ class AuthRegister extends React.Component {
 
         </form>
 
-        <p> Already a member? <a onClick={this.props.handleClick}>Log in</a></p>
+        <p> Already a member? <Link to="/auth/login">Log in</Link></p>
       </section>
     );
   }
 }
 
-export default withRouter(AuthRegister);
+export default AuthRegister;

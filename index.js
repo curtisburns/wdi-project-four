@@ -15,4 +15,4 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use('/api', Router);
 
-app.listen(port, () => console.log(`Express is listenon on port ${port}`));
+app.listen(port, () => console.log(`Express is listening on port ${port}`));

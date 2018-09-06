@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //Components
 import FormField from '../common/FormField';
@@ -21,8 +21,9 @@ class AuthLogin extends React.Component {
     this.setState({ passwordHidden });
   }
 
-  handleChange = ({ target: name, value }) => {
-    this.stateState({ [name]: value });
+  handleChange = ({ target: {name, value} }) => {
+    console.log('Im firing');
+    this.setState({ [name]: value });
   }
 
   handleSubmit = event => {
@@ -70,10 +71,10 @@ class AuthLogin extends React.Component {
           <button>Log in</button>
 
         </form>
-        <p> Not a member? <a onClick={this.props.handleClick}>Register (for free!)</a></p>
+        <p> Not a member? <Link to="/auth/register">Register (for free!)</Link></p>
       </section>
     );
   }
 }
 
-export default withRouter(AuthLogin);
+export default AuthLogin;

@@ -7,17 +7,25 @@ import 'bulma/css/bulma.css';
 import './scss/style.scss';
 
 // Components
+import Header from './components/common/Header';
+import AuthLogin from './components/auth/Login';
+import AuthRegister from './components/auth/Register';
 import CoursesIndex from './components/courses/Index';
 
 // Static
-import Home from './components/static/Home';
+import AuthBackground from './components/static/AuthBackground';
 
 class App extends React.Component {
   render() {
     return(
       <main>
-        <Route exact path="/" component={Home} />
+        <Header />
+        {/* Auth - Background will render along with login and register */}
+        <Route path="/auth" component={AuthBackground} />
+        <Route path="/auth/register" component={AuthRegister} />
+        <Route path="/auth/login" component={AuthLogin} />
         <Switch>
+          {/* Courses */}
           <Route exact path="/browsecourses" component={CoursesIndex} />
         </Switch>
       </main>
