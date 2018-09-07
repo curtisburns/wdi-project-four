@@ -7,14 +7,15 @@ export default function FormField(
     placeholder,
     name,
     value,
-    type 
+    type,
+    fieldStyle
   }) {
   return(
     <div className='field'>
-      <label className='label' htmlFor={name}>{label}</label>
-      {label2 && <p className='label'>{label2}</p>}
+      <label className="label" htmlFor={name}>{label}</label>
+      {label2 && <p className="label2">{label2}</p>}
       <input
-        className='input'
+        className={`input ${fieldStyle}`}
         name={name}
         placeholder={placeholder}
         value={value[name] || ''}
