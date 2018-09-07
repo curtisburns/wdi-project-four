@@ -1,3 +1,6 @@
+// TODO: add a boolean to determine whether user is learning or creating
+// TODO: create form
+
 import React from 'react';
 
 // Components
@@ -18,13 +21,26 @@ const Templates = {
 
 class PagesShow extends React.Component {
   state = {
-    componentString: `Template${this.props.page.templateNumber}`
+    componentString: `Template${this.props.page.templateNumber || this.props.templateNumber}`,
+    creation: false
+  }
+
+  componentDidMount() {
+    if (this.props.page) {
+      console.log('This is creation mode');
+      this.setState({ creation: true });
+
+    } else {
+      // axios.get()
+      console.log('This is study mode');
+    }
+
   }
 
 
   renderTemplate() {
     const TemplateComponent = Templates[this.state.componentString];
-    return <TemplateComponent page={this.props.page}/>;
+    return <TemplateComponent page={this.props.page || this.state.page}/>;
   }
 
   render() {

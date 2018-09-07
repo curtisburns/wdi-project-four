@@ -24,7 +24,7 @@ class CourseOverview extends React.Component {
       .then(res => {
         console.log(`A new page has been created with template ${res.data.templateNumber}`);
         this.setState({ pageId: res.data._id});
-        this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/pages/${this.state.pageId}`);
+        this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/editpage/${this.state.pageId}`);
       });
   }
 

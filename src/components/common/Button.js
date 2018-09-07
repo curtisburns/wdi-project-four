@@ -7,3 +7,5 @@ export default function Button({ handleClick, buttonClass, buttonText }) {
     </button>
   );
 }
+
+{/* <Button handleClick="" buttonClass="" buttonText="" /> */}

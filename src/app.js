@@ -15,6 +15,7 @@ import CourseOverview from './components/pages/CourseOverview';
 import CoursesNew from './components/courses/New';
 import CoursesCreateIntro from './components/courses/CreateIntro';
 import PageOverview from './components/pages/PageOverview';
+import CourseCreateSave from './components/pages/CreateSave';
 
 
 // Static
@@ -34,7 +35,7 @@ class App extends React.Component {
           {/* Courses */}
           <Route path="/browsecourses" component={CoursesIndex} />
           {/* Course Creation */}
-          <Route path="/coursecreation/:courseId/pages/:pageId" component={PageOverview} />
+          <Route path="/coursecreation/:courseId/editpage/:pageId" component={PageOverview} />
           <Route path ="/coursecreation/:courseId/pages" component={CourseOverview} />
         </Switch>
 
@@ -42,6 +43,7 @@ class App extends React.Component {
         <Switch>
           <Route path="*/newcourseintro" component={CoursesCreateIntro} />
           <Route path="*/newcoursesetup" component={CoursesNew} />
+          <Route path="*/finish" component={CourseCreateSave} />
         </Switch>
 
       </main>
