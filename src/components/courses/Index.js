@@ -1,3 +1,5 @@
+// TODO: Search bar
+
 import React from 'react';
 import axios from 'axios';
 
@@ -13,6 +15,7 @@ export default class Index extends React.Component {
     return(
       <section>
 
+
         <div className="columns">
           <div className="column is-3">
             <p>Filter section</p>
@@ -21,7 +24,7 @@ export default class Index extends React.Component {
 
             {this.state.courses && this.state.courses.map(course =>
               <div key={course._id} className="card columns">
-
+                {/* Thumbnail */}
                 <div className="column is-2">
                   <img src={course.imageUrl} />
                 </div>

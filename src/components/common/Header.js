@@ -13,6 +13,7 @@ class Header extends React.Component {
     this.props.history.push('/auth/login');
   }
   render() {
+    console.log(this.props.history);
     return(
       <header className="navbar is-fixed-top">
         <Link className="navbar-item" to="/browsecourses">
@@ -23,7 +24,7 @@ class Header extends React.Component {
 
           {!Auth.isAuthenticated() &&  <Link className="navbar-item" to="/auth/register">Register</Link>}
           {!Auth.isAuthenticated() &&  <Link className="navbar-item" to="/auth/login">Log in</Link>}
-          {Auth.isAuthenticated() &&  <Link className="navbar-item" to="#">Build a course</Link>}
+          {Auth.isAuthenticated() &&  <Link className="navbar-item" to={`${this.props.history.location.pathname}/newcourseintro`}>Build a course</Link>}
           {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>Log out</a> }
           {Auth.isAuthenticated() &&  <Link className="navbar-item"  to="#">{Auth.currentUsername()}</Link> }
         </div>

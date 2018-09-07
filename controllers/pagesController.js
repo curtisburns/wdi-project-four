@@ -2,8 +2,14 @@ const Page = require('../models/page');
 const Course = require('../models/course');
 
 function pagesIndex(req, res, next) {
-  Page.find()
-    .then(pages => res.json(pages))
+  // Page.find()
+  //   .then(pages => res.json(pages))
+  //   .catch(next);
+  // Will only need to find the pages that relate to a particular course,
+  // never all of them.
+  Course.findById(req.params.courseId)
+    .populate('pages')
+    .then(course => res.json(course.pages))
     .catch(next);
 }
 

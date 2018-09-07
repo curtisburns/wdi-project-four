@@ -5,6 +5,7 @@ const Router = express.Router();
 const authController = require('../controllers/authController');
 const coursesController = require('../controllers/coursesController');
 const usersController = require('../controllers/usersController');
+const pagesController = require('../controllers/pagesController');
 
 // Homepage - Login and Register will be on this page
 Router.route('/')
@@ -29,6 +30,17 @@ Router.route('/courses/:courseId')
   .get(coursesController.show)
   .put(coursesController.update)
   .delete(coursesController.delete);
+
+// Pages
+Router.route('/courses/:courseId/pages')
+  .get(pagesController.index)
+  .post(pagesController.create);
+
+Router.route('/courses/:courseId/pages/:pageId')
+  .get(pagesController.show)
+  .put(pagesController.update)
+  .delete(pagesController.delete);
+
 // Users
 Router.route('/users')
   .get(usersController.index);

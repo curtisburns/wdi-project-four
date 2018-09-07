@@ -5,7 +5,7 @@ const pageSchema = new mongoose.Schema({
   videoUrl: String,
   imageUrl: String,
   elements: [{
-    type: String,
+    contentType: String,
     content: String
   }]
 });
