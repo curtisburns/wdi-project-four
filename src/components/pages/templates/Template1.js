@@ -6,7 +6,14 @@ import React from 'react';
 export default function Template1({page}) {
   return(
     <div>
+      {page.imageUrl ?
+        <img src={page.imageUrl} /> :
+        <div style={{ height: 300, width: 300, background: 'grey'}}>
+        </div>
+      }
+
       <p>this is template {page.templateNumber}</p>
-      <p>Page one</p>
-    </div>  );
+      <p>Page four</p>
+    </div>
+  );
 }

@@ -5,6 +5,7 @@ import axios from 'axios';
 
 // Components
 import PagesShow from './Show';
+import PagesEdit from './Edit';
 
 class PageOverview extends React.Component {
   state = {}
@@ -17,6 +18,16 @@ class PageOverview extends React.Component {
   render() {
     return(
       <div>
+        <div className="columns">
+          <div className="column is-9">
+            {this.state.templateNumber &&
+              <PagesShow page={this.state}/>}
+          </div>
+          <div className="column is-3">
+            {this.state.templateNumber &&
+              <PagesEdit page={this.state}/>}
+          </div>
+        </div>
         This is thepages overview
         This is thepages overview
         This is thepages overview
@@ -26,8 +37,6 @@ class PageOverview extends React.Component {
         This is thepages overview
         This is thepages overview
         This is thepages overview
-        {this.state.templateNumber &&
-          <PagesShow page={this.state}/>}
       </div>
     );
   }
