@@ -34,4 +34,13 @@ Auth.currentUserId = function() {
   return this.getPayload().sub;
 };
 
+Auth.bearerHeader = function() {
+  return {
+    headers: {
+      //request headers
+      authorization: `Bearer ${Auth.getToken()}`
+    }
+  };
+};
+
 export default Auth;

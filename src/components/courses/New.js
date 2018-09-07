@@ -1,12 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 // Components
 import Button from '../common/Button';
 import FormField from '../common/FormField';
 
+//Lib
+import Auth from '../../lib/Auth';
+
 class CoursesNew extends React.Component {
-  state = {}
+  state = {
+    title: 'An introduction to testing',
+    imageUrl: 'http://fasdfsdf',
+    subject: 'Computing',
+    description: 'This is a test course'
+  }
 
   handleCancel = () => {
     // console.log('Cancel', this.props);
@@ -16,6 +25,12 @@ class CoursesNew extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log('Im submitting');
+    axios.post('/api/courses', this.state , Auth.bearerHeader())
+      .then((res) => {
+        this.setState(res.data);
+        console.log('state is now', this.state);
+        this.props.history.push(`/coursecreation/${this.state._id}/pages`);
+      });
 
   }
 
@@ -85,6 +100,7 @@ class CoursesNew extends React.Component {
               <label className="label" htmlFor="description">Add a description of your course</label>
               <p className="label2">This will help students know what they are signing up for!</p>
               <textarea
+                value={this.state.description}
                 className="course-description-field"
                 rows="8" cols="67"
                 name='description'
