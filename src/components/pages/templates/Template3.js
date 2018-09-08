@@ -3,11 +3,26 @@
 
 import React from 'react';
 
+
+
 export default function Template3({page}) {
   return(
-    <div>
-      <p>this is template {page.templateNumber}</p>
-      <p>boom</p>      
-    </div>
+    <section className="t3-section">
+      <div>
+
+        {/* Main Video */}
+        <div className="t3-video-container">
+          <div className="iframe-container">
+            {page.videoUrl ?
+              <iframe
+                src={page.videoUrl.replace('watch?v=', 'embed/')}>
+              </iframe> :
+              <div className="t3-video t3-video-placeholder" />
+            }
+          </div>
+        </div>
+
+      </div>
+    </section>
   );
 }

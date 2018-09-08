@@ -8,7 +8,8 @@ export default function FormField(
     name,
     value,
     type,
-    fieldStyle
+    fieldStyle,
+    dataType
   }) {
   return(
     <div className='field'>
@@ -16,11 +17,24 @@ export default function FormField(
       {label2 && <p className="label2">{label2}</p>}
       <input
         className={`input ${fieldStyle}`}
+        data-type={dataType}
         name={name}
         placeholder={placeholder}
-        value={value[name] || ''}
+        value={value ? value[name] : ''}
         type={type || 'text'}
         onChange={handleChange}/>
     </div>
   );
 }
+
+{/* <FormField
+  handleChange=""
+  label=""
+  [label2]=""
+  [placeholder]=""
+  [data-type]=""
+  name=""
+  value="input state"
+  [type]="text(default)"
+  [fieldStyle]="extra styling"
+/> */}

@@ -23,14 +23,19 @@ class PagesEdit extends React.Component {
 
   renderTemplateForm() {
     const TemplatesEditComponent = TemplatesEdit[this.state.componentString];
-    return <TemplatesEditComponent page={this.props.page}/>;
+    return <TemplatesEditComponent
+      page={this.props.page}
+      handleChange={this.props.handleChange}
+      handleContentChange={this.props.handleContentChange}
+      handleEditSubmit={this.props.handleEditSubmit}
+      handleEditCancel={this.props.handleEditCancel}
+    />;
   }
 
   render() {
     return(
       <section>
         {this.renderTemplateForm()}
-        this is the form
       </section>
     );
   }

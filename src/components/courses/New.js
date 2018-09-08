@@ -47,22 +47,6 @@ class CoursesNew extends React.Component {
           <h2 className="title is-3">Course Creation</h2>
           <form onSubmit={this.handleSubmit}>
 
-
-            {/* { handleChange,
-              label,
-              label2,
-              placeholder,
-              name,
-              value,
-              type
-            })
-
-
-            title: { type: String, required: String },
-            subject: { type: String, required: String },
-            imageUrl: { type: String, required: String },
-            description: */}
-
             {/* Course Title */}
             <FormField
               name="title"
