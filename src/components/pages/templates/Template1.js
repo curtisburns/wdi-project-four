@@ -7,7 +7,8 @@ import React from 'react';
 
 
 
-export default function Template1({page}) {
+export default function Template1({page, handleSkip, handleNext, handlePrevious, handleFinish, canProgress, handleGotIt}) {
+
   return(
     <section className="t1-section">
       <div>
@@ -46,6 +47,22 @@ export default function Template1({page}) {
                 <div className="t1-text-placeholder"/>
               </div>
             }
+          </div>
+
+          {/* Buttons */}
+          <div>
+            {/* Previous */}
+          </div>
+
+          <div>
+            {/* Skip */}
+          </div>
+
+          <div>
+            {/* Got it */}
+            <a onClick={handleGotIt}> Got it! </a>
+            {/* Next */}
+            {/* Finish */}
           </div>
 
         </div>

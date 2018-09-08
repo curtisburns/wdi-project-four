@@ -8,7 +8,8 @@ import PagesShow from './Show';
 
 class PageContainer extends React.Component {
   state = {
-    pageNumber: 0
+    pageNumber: 0,
+    canProgress: false
   }
 
   componentDidMount(){
@@ -16,15 +17,31 @@ class PageContainer extends React.Component {
       .then(res => this.setState(res.data));
   }
 
+  handleGotIt = () => {
+    this.setState({ canProgress: true });
+  }
+
 
   render() {
+    console.log('hey', this.state.canProgress);
+
     const pageNumber = this.state.pageNumber;
-    // console.log(pageNumber);
-    // console.log('pages are',this.state.pages);
+    const lastPage = this.state.pages && pageNumber === (this.state.pages.length-1);
     return(
       <div>
         {this.state.pages &&
-              <PagesShow templateNumber={this.state.pages[pageNumber].templateNumber} courseId={this.props.match.params.courseId} pageId={this.props.match.params.pageId} />}
+              <PagesShow
+                templateNumber={this.state.pages[pageNumber].templateNumber}
+                courseId={this.props.match.params.courseId}
+                pageId={this.props.match.params.pageId}
+                handleSkip={!lastPage && this.handleSkip}
+                handleNext={!lastPage && this.handleNext}
+                handlePrevious={pageNumber && this.handlePrevious}
+                handleFinish={lastPage ? this.handleFinish : null }
+                handleGotIt={this.handleGotIt}
+                canProgress={this.state.canProgress}
+              />
+        }
       </div>
     );
   }

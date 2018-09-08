@@ -44,10 +44,19 @@ class PagesShow extends React.Component {
     const templateNumber = this.props.page ? this.props.page.templateNumber : this.props.templateNumber;
     const templateSelector = `Template${templateNumber}`;
     const TemplateComponent = Templates[templateSelector];
-    return <TemplateComponent  page={this.props.page || this.state}/>;
+    return <TemplateComponent
+      page={this.props.page || this.state}
+      handleSkip={this.props.handleSkip}
+      handleNext={this.props.handleNext}
+      handlePrevious={this.props.handlePrevious}
+      handleFinish={this.props.handleFinish}
+      handleGotIt={this.props.handleGotIt}
+      canProgress={this.props.canProgress}
+    />;
   }
 
   render() {
+
     return(
       <section>
 
