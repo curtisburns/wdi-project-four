@@ -7,6 +7,9 @@ import axios from 'axios';
 import PagesShow from './Show';
 import PagesEdit from './Edit';
 
+// Lib
+import Auth from '../../lib/Auth';
+
 class PageOverview extends React.Component {
   state = {
     elements: [{}]
@@ -41,7 +44,7 @@ class PageOverview extends React.Component {
 
   handleEditSubmit = (event) => {
     event.preventDefault();
-    axios.put(`/api/courses/${this.props.match.params.courseId}/pages/${this.props.match.params.pageId}`, this.state)
+    axios.put(`/api/courses/${this.props.match.params.courseId}/pages/${this.props.match.params.pageId}`, this.state, Auth.bearerHeader())
       .then(() => console.log('the page has been saved'));
     this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/pages/`);
   }

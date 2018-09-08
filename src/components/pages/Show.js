@@ -2,6 +2,7 @@
 // TODO: create form
 
 import React from 'react';
+import axios from 'axios';
 
 // Components
 import Template1 from './templates/Template1';
@@ -21,7 +22,6 @@ const Templates = {
 
 class PagesShow extends React.Component {
   state = {
-    componentString: `Template${this.props.page.templateNumber || this.props.templateNumber}`,
     creation: false
   }
 
@@ -31,7 +31,9 @@ class PagesShow extends React.Component {
       this.setState({ creation: true });
 
     } else {
-      // axios.get()
+      console.log(this.props);
+      axios.get(`/api/courses/${this.props.courseid}/pages/${this.props.pageId}`)
+        .then(res => this.setState(res.data));
       console.log('This is study mode');
     }
 
@@ -39,8 +41,10 @@ class PagesShow extends React.Component {
 
 
   renderTemplate() {
-    const TemplateComponent = Templates[this.state.componentString];
-    return <TemplateComponent page={this.props.page || this.state.page}/>;
+    const templateNumber = this.props.page ? this.props.page.templateNumber : this.props.templateNumber;
+    const templateSelector = `Template${templateNumber}`;
+    const TemplateComponent = Templates[templateSelector];
+    return <TemplateComponent  page={this.props.page || this.state}/>;
   }
 
   render() {

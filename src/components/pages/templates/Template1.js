@@ -1,6 +1,8 @@
 // TODO: Need to add conditional formatting to disable functionality in the show
 // component. Maybe trigger it based on the url..?
 
+// TODO: page.elements && page.elements.filter(element => element.contentType === 'title')[0] && ... These checks are necessary for both the creation and study modes to work.
+
 import React from 'react';
 
 
@@ -22,7 +24,7 @@ export default function Template1({page}) {
 
           {/* Title */}
           <div>
-            {page.elements.filter(element => element.contentType === 'title')[0] &&
+            {page.elements && page.elements.filter(element => element.contentType === 'title')[0] &&
             page.elements.filter(element => element.contentType === 'title')[0].content ?
               <h2 className="title is-3">
                 {page.elements.filter(element => element.contentType === 'title')[0].content}
@@ -33,7 +35,7 @@ export default function Template1({page}) {
 
           {/* Content */}
           <div>
-            {page.elements.filter(element => element.contentType === 'text')[0] &&
+            {page.elements && page.elements.filter(element => element.contentType === 'text')[0] &&
             page.elements.filter(element => element.contentType === 'text')[0].content ?
               <p>
                 {page.elements.filter(element => element.contentType === 'text')[0].content}

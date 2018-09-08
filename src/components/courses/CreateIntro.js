@@ -15,7 +15,7 @@ export default class CourseCreateIntro extends React.Component {
   render() {
     return(
       <section>
-        <div className="background-overlay">
+        <div className="background-overlay" onClick={this.handleCancel}>
         </div>
         <div className="modal1">
           <h2 className="title is-3">Course Creation</h2>

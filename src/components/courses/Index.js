@@ -2,6 +2,7 @@
 
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default class Index extends React.Component {
   state = {}
@@ -15,7 +16,6 @@ export default class Index extends React.Component {
     return(
       <section>
 
-
         <div className="columns">
           <div className="column is-3">
             <p>Filter section</p>
@@ -23,33 +23,37 @@ export default class Index extends React.Component {
           <div className="column is-6">
 
             {this.state.courses && this.state.courses.map(course =>
-              <div key={course._id} className="card columns">
-                {/* Thumbnail */}
-                <div className="column is-2">
-                  <img src={course.imageUrl} />
-                </div>
 
-                {/* Course Title and creator */}
-                <div className="column is-9 columns is-multiline">
-                  <div className="column is-12">
-                    <h3 className="subtitle is-6">{course.title}</h3>
+              <Link key={course._id} to={`/browsecourses/startnewcourse/${course._id}`}>
+                <div className="card columns">
+                  {/* Thumbnail */}
+                  <div className="column is-2">
+                    <img src={course.imageUrl} />
                   </div>
-                  <div className="column is-12">
-                    <h3 className="subtitle is-7">Created by {course.createdBy.username}</h3>
-                  </div>
-                </div>
 
-                {/* Star Rating */}
-                <div className="column is-1 columns is is-multiline">
-                  <div className="column is-12">
-                    <p>Star image</p>
+                  {/* Course Title and creator */}
+                  <div className="column is-9 columns is-multiline">
+                    <div className="column is-12">
+                      <h3 className="subtitle is-6">{course.title}</h3>
+                    </div>
+                    <div className="column is-12">
+                      <h3 className="subtitle is-7">Created by {course.createdBy.username}</h3>
+                    </div>
                   </div>
-                  <div className="column is-12">
-                    <p className="subtitle is-7">{course.starRating || 0}</p>
-                  </div>
-                </div>
 
-              </div>
+                  {/* Star Rating */}
+                  <div className="column is-1 columns is is-multiline">
+                    <div className="column is-12">
+                      <p>Star image</p>
+                    </div>
+                    <div className="column is-12">
+                      <p className="subtitle is-7">{course.starRating || 0}</p>
+                    </div>
+                  </div>
+
+                </div>
+              </Link>
+
             )}
 
           </div>
@@ -57,7 +61,6 @@ export default class Index extends React.Component {
             <p>Info panel</p>
           </div>
         </div>
-
 
       </section>
     );

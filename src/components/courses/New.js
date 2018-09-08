@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Components
@@ -12,7 +11,7 @@ import Auth from '../../lib/Auth';
 class CoursesNew extends React.Component {
   state = {
     title: 'An introduction to testing',
-    imageUrl: 'http://fasdfsdf',
+    imageUrl: 'http://static.wixstatic.com/media/88e4c2_dde3ecf82909493f94bb32a60fe1a8c6~mv2.jpg',
     subject: 'Computing',
     description: 'This is a test course'
   }
@@ -41,7 +40,7 @@ class CoursesNew extends React.Component {
   render() {
     return(
       <section>
-        <div className="background-overlay">
+        <div className="background-overlay" onClick={this.handleCancel}>
         </div>
         <div className="modal1">
           <h2 className="title is-3">Course Creation</h2>
@@ -94,8 +93,8 @@ class CoursesNew extends React.Component {
 
 
 
-              <Button buttonText="Start adding content" buttonClass="" />
-              <a onClick={this.handleCancel} className="button">Cancel</a>
+            <Button buttonText="Start adding content" buttonClass="" />
+            <a onClick={this.handleCancel} className="button">Cancel</a>
 
           </form>
 
