@@ -7,7 +7,7 @@ import React from 'react';
 
 
 
-export default function Template1({page, handleSkip, handleNext, handlePrevious, handleFinish, canProgress, handleGotIt}) {
+export default function Template1({page, handleSkip, handleNext, handlePrevious, handleFinish, canProgress, handleGotIt, isFirstPage, isLastPage, creationMode}) {
 
   return(
     <section className="t1-section">
@@ -52,17 +52,22 @@ export default function Template1({page, handleSkip, handleNext, handlePrevious,
           {/* Buttons */}
           <div>
             {/* Previous */}
+            {!isFirstPage && <a onClick={handlePrevious}> Previous </a>}
           </div>
 
           <div>
             {/* Skip */}
+            {!canProgress && <a onClick={handleSkip}> Skip </a>}
           </div>
 
           <div>
             {/* Got it */}
-            <a onClick={handleGotIt}> Got it! </a>
+            {!canProgress && <a onClick={handleGotIt}> Got it! </a>}
+
             {/* Next */}
+            {!isLastPage && canProgress && <a onClick={handleNext}> Next </a>}
             {/* Finish */}
+            {isLastPage && canProgress && <a onClick={handleFinish}> Finish </a>}
           </div>
 
         </div>

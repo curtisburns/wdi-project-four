@@ -22,25 +22,33 @@ const Templates = {
 
 class PagesShow extends React.Component {
   state = {
-    creation: false
+    creationMode: false
   }
 
   componentDidMount() {
     if (this.props.page) {
       console.log('This is creation mode');
-      this.setState({ creation: true });
+      this.setState({ creationMode: true });
 
     } else {
       console.log(this.props);
       axios.get(`/api/courses/${this.props.courseid}/pages/${this.props.pageId}`)
-        .then(res => this.setState(res.data));
+        .then(res => this.setState({ creationMode: false, ...res.data }));
       console.log('This is study mode');
     }
 
   }
 
+  componentDidUpdate(prevProps){
+    if (!this.state.creationMode && this.props !== prevProps) {
+      axios.get(`/api/courses/${this.props.courseid}/pages/${this.props.pageId}`)
+        .then(res => this.setState(res.data));
+    }
+  }
+
 
   renderTemplate() {
+    console.log(this.state);
     const templateNumber = this.props.page ? this.props.page.templateNumber : this.props.templateNumber;
     const templateSelector = `Template${templateNumber}`;
     const TemplateComponent = Templates[templateSelector];
@@ -52,6 +60,9 @@ class PagesShow extends React.Component {
       handleFinish={this.props.handleFinish}
       handleGotIt={this.props.handleGotIt}
       canProgress={this.props.canProgress}
+      isFirstPage={this.props.isFirstPage}
+      isLastPage={this.props.isLastPage}
+      creationMode={this.state.creationMode}
     />;
   }
 
