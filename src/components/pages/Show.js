@@ -54,14 +54,16 @@ class PagesShow extends React.Component {
     const TemplateComponent = Templates[templateSelector];
     return <TemplateComponent
       page={this.props.page || this.state}
-      handleSkip={this.props.handleSkip}
+      handleShowSkipModal={this.props.handleShowSkipModal}
       handleNext={this.props.handleNext}
       handlePrevious={this.props.handlePrevious}
       handleFinish={this.props.handleFinish}
+      handleFinishWithSkip={this.props.handleFinishWithSkip}
       handleGotIt={this.props.handleGotIt}
       canProgress={this.props.canProgress}
       isFirstPage={this.props.isFirstPage}
       isLastPage={this.props.isLastPage}
+      skipped={this.props.skipped}
       creationMode={this.state.creationMode}
     />;
   }

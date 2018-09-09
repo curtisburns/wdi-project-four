@@ -17,6 +17,8 @@ import CoursesShow from './components/courses/Show';
 import CoursesCreateIntro from './components/courses/CreateIntro';
 import PageOverview from './components/pages/PageOverview';
 import PageContainer from './components/pages/PageContainer';
+import CourseCompleted from './components/courses/CourseCompleted';
+import CourseCompletedWithSkip from './components/courses/CourseCompletedWithSkip';
 import CourseCreateSave from './components/pages/CreateSave';
 
 
@@ -41,6 +43,8 @@ class App extends React.Component {
           <Route path ="/coursecreation/:courseId/pages" component={CourseOverview} />
           {/* Course Start */}
           <Route path ="/course/:courseId/page/:pageId" component={PageContainer} />
+          <Route path ="/course/:courseId/_completed" component={CourseCompletedWithSkip} />
+          <Route path ="/course/:courseId/completed" component={CourseCompleted} />
 
         </Switch>
 

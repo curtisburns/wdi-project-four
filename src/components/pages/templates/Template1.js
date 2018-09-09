@@ -7,7 +7,7 @@ import React from 'react';
 
 
 
-export default function Template1({page, handleSkip, handleNext, handlePrevious, handleFinish, canProgress, handleGotIt, isFirstPage, isLastPage, creationMode}) {
+export default function Template1({page, handleShowSkipModal, handleNext, handlePrevious, handleFinish, handleFinishWithSkip, canProgress, handleGotIt, isFirstPage, isLastPage, skipped, creationMode}) {
 
   return(
     <section className="t1-section">
@@ -57,7 +57,7 @@ export default function Template1({page, handleSkip, handleNext, handlePrevious,
 
           <div>
             {/* Skip */}
-            {!canProgress && <a onClick={handleSkip}> Skip </a>}
+            {!canProgress && <a onClick={handleShowSkipModal}> Skip </a>}
           </div>
 
           <div>
@@ -67,7 +67,8 @@ export default function Template1({page, handleSkip, handleNext, handlePrevious,
             {/* Next */}
             {!isLastPage && canProgress && <a onClick={handleNext}> Next </a>}
             {/* Finish */}
-            {isLastPage && canProgress && <a onClick={handleFinish}> Finish </a>}
+            {isLastPage && canProgress && !skipped && <a onClick={handleFinish}> Finish </a>}
+            {isLastPage && canProgress && skipped && <a onClick={handleFinishWithSkip}> Finish </a>}
           </div>
 
         </div>
