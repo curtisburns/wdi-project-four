@@ -14,9 +14,21 @@ Auth.setToken = function(token) {
   return localStorage.setItem('token', token);
 };
 
+Auth.setUserInfo = function(user) {
+  return localStorage.setItem('user', JSON.stringify(user));
+};
+
+Auth.getUserInfo = function() {
+  return JSON.parse(localStorage.getItem('user'));
+};
+
 //On logout
 Auth.removeToken = function() {
   localStorage.removeItem('token');
+};
+
+Auth.removeUserInfo = function() {
+  localStorage.removeItem('user');
 };
 
 //Decode the token and get object with values

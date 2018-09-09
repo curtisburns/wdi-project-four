@@ -9,8 +9,9 @@ const userSchema = new mongoose.Schema({
   countryOfResidence: { type: String, required: true },
   // Course specific
   coursesCreated: [{ type: mongoose.Schema.ObjectId, ref: 'Course'}],
-  coursesTaken: [{ type: mongoose.Schema.ObjectId, ref: 'Course'}],
+  coursesCompleted: [{ type: mongoose.Schema.ObjectId, ref: 'Course'}],
   currentCourse: { type: mongoose.Schema.ObjectId, ref: 'Course' },
+  currentCourseSkipped: Boolean,
   currentPage: { type: mongoose.Schema.ObjectId, ref: 'Page' }
 });
 

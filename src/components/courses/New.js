@@ -29,7 +29,10 @@ class CoursesNew extends React.Component {
         this.setState(res.data);
         console.log('state is now', this.state);
         this.props.history.push(`/coursecreation/${this.state._id}/pages`);
+        axios.get(`/api/users/${Auth.currentUserId()}`)
+          .then(res => Auth.setUserInfo(res.data));
       });
+
 
   }
 

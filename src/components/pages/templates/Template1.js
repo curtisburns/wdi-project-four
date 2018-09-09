@@ -57,7 +57,7 @@ export default function Template1({page, handleShowSkipModal, handleNext, handle
 
           <div>
             {/* Skip */}
-            {!canProgress && <a onClick={handleShowSkipModal}> Skip </a>}
+            {!isLastPage && !canProgress && <a onClick={handleShowSkipModal}> Skip </a>}
           </div>
 
           <div>

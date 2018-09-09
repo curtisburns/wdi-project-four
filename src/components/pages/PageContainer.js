@@ -7,6 +7,9 @@ import axios from 'axios';
 import PagesShow from './Show';
 import SkipModal from './SkipModal';
 
+// Lib
+import Auth from '../../lib/Auth';
+
 class PageContainer extends React.Component {
   state = {
     pageNumber: 0,
@@ -25,13 +28,23 @@ class PageContainer extends React.Component {
   }
 
   handleNext = () => {
+    const user = Auth.getUserInfo();
     const nextPage = this.state.pageNumber+1;
+    user.currentPage = this.state.pages[nextPage]._id;
+    console.log('user is', user);
+    axios.put(`/api/users/${Auth.currentUserId()}`, user)
+      .then(res => Auth.setUserInfo(res.data));
     this.setState({ pageNumber: nextPage, canProgress: false });
     this.props.history.push(`/course/${this.props.match.params.courseId}/page/${this.state.pages[nextPage]._id}`);
   }
 
   handlePrevious = () => {
+    const user = Auth.getUserInfo();
     const previousPage = this.state.pageNumber-1;
+    user.currentPage = this.state.pages[previousPage]._id;
+    axios.put(`/api/users/${Auth.currentUserId()}`, user)
+      .then(res => Auth.setUserInfo(res.data));
+
     this.setState({ pageNumber: previousPage, canProgress: false });
     this.props.history.push(`/course/${this.props.match.params.courseId}/page/${this.state.pages[previousPage]._id}`);
   }
@@ -50,12 +63,31 @@ class PageContainer extends React.Component {
   }
 
   handleFinishWithSkip = () => {
-    console.log('Finished but skipped!');
-    this.props.history.push(`/course/${this.props.match.params.courseId}/_completed`);
+    const user = Auth.getUserInfo();
+    const courseId = this.props.match.params.courseId;
+    user.currentCourse = null;
+    user.currentPage = null;
+    axios.put(`/api/users/${Auth.currentUserId()}`, user)
+      .then(res => console.log(res.data));
+    this.props.history.push(`/course/${courseId}/_completed`);
   }
+
   handleFinish = () => {
-    console.log('Finish!');
-    this.props.history.push(`/course/${this.props.match.params.courseId}/completed`);
+    const user = Auth.getUserInfo();
+    const courseId = this.props.match.params.courseId;
+
+    // Avoid/remove duplicates
+    user.coursesCompleted = user.coursesCompleted.filter(completedCourse => completedCourse.toString() !== courseId);
+
+    // Set to local storage and update user via api
+    user.coursesCompleted.push(courseId);
+    user.currentCourse = null;
+    user.currentPage = null;
+    Auth.setUserInfo(user);
+
+    axios.put(`/api/users/${Auth.currentUserId()}`, user)
+      .then(res => console.log(res.data));
+    this.props.history.push(`/course/${courseId}/completed`);
   }
 
 

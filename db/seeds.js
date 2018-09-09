@@ -6,7 +6,7 @@ mongoose.connect(dbUri);
 // Require models
 const User = require('../models/user');
 const Course = require('../models/course');
-// const Page = require('../models/pages');
+const Page = require('../models/page');
 
 
 // Seed data
@@ -31,7 +31,7 @@ const courseData = [{
 // Drop collections on seed
 User.collection.drop();
 Course.collection.drop();
-// Page.collection.drop()
+Page.collection.drop()
 
 User.create(userData)
   .then(users => {

@@ -31,9 +31,9 @@ class AuthLogin extends React.Component {
     axios.post('/api/login', this.state)
       .then(res => {
         const token = res.data.token;
+        const user = res.data.user;
         Auth.setToken(token); // Essentially logged in - have token!
-        console.log('Im done! Check out insomnia and local storage');
-        console.log('props is', this);
+        Auth.setUserInfo(user); // Allows us to keep track of user's progress
         this.props.history.push('/browsecourses');
       });
   }

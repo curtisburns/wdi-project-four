@@ -11,6 +11,9 @@ import Template3 from './templates/Template3';
 import Template4 from './templates/Template4';
 import Template5 from './templates/Template5';
 
+// Lib
+import Auth from '../../lib/Auth';
+
 const Templates = {
   Template1: Template1,
   Template2: Template2,
@@ -32,9 +35,14 @@ class PagesShow extends React.Component {
 
     } else {
       console.log(this.props);
-      axios.get(`/api/courses/${this.props.courseid}/pages/${this.props.pageId}`)
+      axios.get(`/api/courses/${this.props.courseId}/pages/${this.props.pageId}`)
         .then(res => this.setState({ creationMode: false, ...res.data }));
       console.log('This is study mode');
+      // Setting the current course on User
+      const user = Auth.getUserInfo();
+      user.currentCourse = this.props.courseId;
+      axios.put(`/api/users/${Auth.currentUserId()}`, user)
+        .then(res => Auth.setUserInfo(res.data));
     }
 
   }
