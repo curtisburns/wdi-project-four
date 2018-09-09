@@ -10,6 +10,7 @@ import './scss/style.scss';
 import Header from './components/common/Header';
 import AuthLogin from './components/auth/Login';
 import AuthRegister from './components/auth/Register';
+import UsersShow from './components/users/Show';
 import CoursesIndex from './components/courses/Index';
 import CourseOverview from './components/pages/CourseOverview';
 import CoursesNew from './components/courses/New';
@@ -54,6 +55,10 @@ class App extends React.Component {
           <Route path="*/newcoursesetup" component={CoursesNew} />
           <Route path="*/startnewcourse/:courseId" component={CoursesShow} />
           <Route path="*/finish" component={CourseCreateSave} />
+        </Switch>
+
+        <Switch>
+            <Route path="/users/:userId/" component={UsersShow} />
         </Switch>
 
       </main>

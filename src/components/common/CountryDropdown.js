@@ -246,10 +246,10 @@ const countriesList = [
   'Zimbabwe'
 ];
 
-function CountryDropdownOptions({handleChange, defaultValue}) {
+function CountryDropdown({handleChange, defaultValue, fieldStyle}) {
   return(
-    <div className="select">
-      <select onChange={handleChange} defaultValue={defaultValue}>
+    <div className={`${fieldStyle}`}>
+      <select  onChange={handleChange} defaultValue={defaultValue}>
         {countriesList.map(country =>
           <option
             key={country}
@@ -261,4 +261,4 @@ function CountryDropdownOptions({handleChange, defaultValue}) {
   );
 }
 
-export default CountryDropdownOptions;
+export default CountryDropdown;

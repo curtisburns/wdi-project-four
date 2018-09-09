@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 // Components
 import FormField from '../common/FormField';
-import CountryDropdownOptions from '../common/CountryDropdownOptions';
+import CountryDropdown from '../common/CountryDropdown';
 
 //Lib
 import Auth from '../../lib/Auth';
@@ -60,64 +60,83 @@ class AuthRegister extends React.Component {
 
   render(){
     return(
-      <section>
-        <form onSubmit={this.handleSubmit}>
+      <section className="register-modal">
+        <div className="register-container">
 
-          {/* Email address */}
-          <FormField
-            handleChange={this.handleChange}
-            name="email"
-            label="Please enter your email address"
-            label2="Testing label 2"
-            placeholder="Example@email.com"
-            value={this.state}/>
+          <h6 className="register-title">Register</h6>
+          <form onSubmit={this.handleSubmit}>
 
-          {/* Username */}
-          <FormField
-            handleChange={this.handleChange}
-            name="username"
-            label="Choose a username"
-            label2=""
-            placeholder=""
-            value={this.state}/>
-
-          {/* Country of residence */}
-          <div className="field">
-            <label className="label">Country of residence</label>
-            <CountryDropdownOptions
+            {/* Email address */}
+            <FormField
               handleChange={this.handleChange}
-              defaultValue={this.state.defaultValue}/>
+              name="email"
+              label="Please enter your email address"
+              label2=""
+              placeholder="Example@email.com"
+              value={this.state}
+              labelStyle="register-label"
+              fieldStyle="register-field"
+            />
+
+            {/* Username */}
+            <FormField
+              handleChange={this.handleChange}
+              name="username"
+              label="Choose a username"
+              label2=""
+              placeholder=""
+              value={this.state}
+              labelStyle="register-label"
+              fieldStyle="register-field"
+            />
+
+            {/* Country of residence */}
+            <div className="field">
+              <label className="label register-label">Country of residence</label>
+              <CountryDropdown
+                handleChange={this.handleChange}
+                defaultValue={this.state.defaultValue}
+                fieldStyle="register-dropbox"
+              />
+            </div>
+
+            {/* Password */}
+            <FormField
+              handleChange={this.handleChange}
+              name="password"
+              label="Choose a password"
+              label2=""
+              placeholder=""
+              type={this.state.passwordHidden ? 'password' : 'text'}
+              value={this.state}
+              labelStyle="register-label"
+              fieldStyle="register-field"
+            />
+            <a className="button register-show-hide" onClick={this.toggleShowPassword}>
+              {this.state.passwordHidden ? 'Show password' : 'Hide password'}
+            </a>
+
+            {/* Password Confirm */}
+            <FormField
+              handleChange={this.handleChange}
+              name="confirmPassword"
+              label="Please confirm your password"
+              label2=""
+              type={this.state.passwordHidden ? 'password' : 'text'}
+              placeholder=""
+              value={this.state}
+              labelStyle="register-label"
+              fieldStyle="register-field"
+            />
+
+
+            <button className="button register-submit">Sign up</button>
+
+          </form>
+          <div className="register-bottom-text">
+            <p> Already a member? <Link to="/auth/login">Log in</Link></p>
           </div>
-
-          {/* Password */}
-          <FormField
-            handleChange={this.handleChange}
-            name="password"
-            label="Choose a password"
-            label2=""
-            placeholder=""
-            type={this.state.passwordHidden ? 'password' : 'text'}
-            value={this.state}/>
-
-          {/* Password Confirm */}
-          <FormField
-            handleChange={this.handleChange}
-            name="confirmPassword"
-            label="Please confirm your password"
-            label2=""
-            type={this.state.passwordHidden ? 'password' : 'text'}
-            placeholder=""
-            value={this.state}/>
-
-          <a className="button" onClick={this.toggleShowPassword}>
-            {this.state.passwordHidden ? 'Show password' : 'Hide password'}
-          </a>
-
-          <button>Sign up</button>
-
-        </form>
-
-        <p> Already a member? <Link to="/auth/login">Log in</Link></p>
+        </div>
       </section>
     );
   }

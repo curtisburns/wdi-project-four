@@ -9,6 +9,7 @@ function usersIndex(req, res, next) {
 
 function usersShow(req, res, next) {
   User.findById(req.params.userId)
+    .populate('coursesCreated coursesCompleted currentCourse')
     .then(user => res.json(user))
     .catch(next);
 }

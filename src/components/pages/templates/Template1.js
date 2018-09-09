@@ -51,24 +51,26 @@ export default function Template1({page, handleShowSkipModal, handleNext, handle
 
           {/* Buttons */}
           <div>
-            {/* Previous */}
-            {!isFirstPage && <a onClick={handlePrevious}> Previous </a>}
-          </div>
+            <div>
+              {/* Previous */}
+              {!isFirstPage && <a onClick={handlePrevious}> Previous </a>}
+            </div>
 
-          <div>
-            {/* Skip */}
-            {!isLastPage && !canProgress && <a onClick={handleShowSkipModal}> Skip </a>}
-          </div>
+            <div>
+              {/* Skip */}
+              {!isLastPage && !canProgress && <a onClick={handleShowSkipModal}> Skip </a>}
+            </div>
 
-          <div>
-            {/* Got it */}
-            {!canProgress && <a onClick={handleGotIt}> Got it! </a>}
+            <div>
+              {/* Got it */}
+              {!canProgress && <a onClick={handleGotIt}> Got it! </a>}
 
-            {/* Next */}
-            {!isLastPage && canProgress && <a onClick={handleNext}> Next </a>}
-            {/* Finish */}
-            {isLastPage && canProgress && !skipped && <a onClick={handleFinish}> Finish </a>}
-            {isLastPage && canProgress && skipped && <a onClick={handleFinishWithSkip}> Finish </a>}
+              {/* Next */}
+              {!isLastPage && canProgress && <a onClick={handleNext}> Next </a>}
+              {/* Finish */}
+              {isLastPage && canProgress && !skipped && <a onClick={handleFinish}> Finish </a>}
+              {isLastPage && canProgress && skipped && <a onClick={handleFinishWithSkip}> Finish </a>}
+            </div>
           </div>
 
         </div>

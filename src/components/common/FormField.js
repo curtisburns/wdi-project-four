@@ -9,12 +9,14 @@ export default function FormField(
     value,
     type,
     fieldStyle,
+    labelStyle,
+    label2Style,
     dataType
   }) {
   return(
     <div className='field'>
-      <label className="label" htmlFor={name}>{label}</label>
-      {label2 && <p className="label2">{label2}</p>}
+      <label className={`label ${labelStyle}`} htmlFor={name}>{label}</label>
+      {label2 && <p className={`${label2Style}`}>{label2}</p>}
       <input
         className={`input ${fieldStyle}`}
         data-type={dataType}
@@ -37,4 +39,6 @@ export default function FormField(
   value="input state"
   [type]="text(default)"
   [fieldStyle]="extra styling"
+  [labelStyle]="extra styling"
+  [label2Style]="extra styling"
 /> */}

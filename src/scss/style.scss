@@ -9,7 +9,8 @@
 }
 
 
-// modal
+// modals
+
 .background-overlay {
   height: 100%;
   width: 100%;
@@ -36,6 +37,99 @@
 .course-show-modal {
   overflow-y: scroll;
 }
+
+.register-modal {
+  height: auto;
+  width: 40%;
+  min-width: 320px;
+  position: absolute;
+  top: 10%;
+  right: 7.5%;
+  background: white;
+  padding: 40px calc(20px + 5vw);
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(41, 87, 55, 50);
+}
+
+// Auth
+
+.auth-background {
+  background: rgb(149, 247, 178)
+}
+
+.auth-title {
+  font-family: 'Avenir next';
+  font-weight: 700;
+  color: white;
+  font-size: calc(20px + 0.8vw);
+  padding-top: 8vh;
+}
+
+// Register
+
+.register-div {
+  position: relative;
+}
+
+.register-title {
+  font-family: 'Avenir next';
+  font-weight: 500;
+  font-size: calc(14px + 0.6vw);
+  margin-bottom: 3vh;
+}
+
+.register-label {
+  font-size: calc(12px + 0.3vw);
+  font-family: 'Avenir next';
+  font-weight: 300;
+}
+
+.register-field {
+  font-size: calc(12px + 0.3vw);
+  font-family: 'Avenir next';
+  font-weight: 300;
+  height: 4vh;
+}
+
+.register-dropbox select {
+  font-size: calc(12px + 0.3vw);
+  font-family: 'Avenir next';
+  font-weight: 300;
+  height: 4vh;
+  border-color: rgba(66, 66, 66, .2);
+  box-shadow: inset 0 0 3px rgba(66, 66, 66, .2);
+  background: transparent;
+  width: 100%;
+}
+
+.register-bottom-text {
+  font-size: calc(10px + 0.2vw);
+  font-family: 'Avenir next';
+  font-weight: 300;
+  position: absolute;
+  right: 17%;
+  bottom: 10%;
+}
+
+.register-show-hide {
+  position: absolute;
+  top: 60%;
+  right: 17%;
+  font-size: calc(10px + 0.2vw);
+  font-family: 'Avenir next';
+  font-weight: 300;
+  height: 2vh;
+}
+
+.register-submit {
+  font-size: calc(8px + 0.3vw);
+  font-family: 'Avenir next';
+  font-weight: 600;
+  height: 3vh;
+  margin-bottom: 10px;
+  padding-top: calc(0.375em - 3px);
+}
+
 
 // Course New Form
 
