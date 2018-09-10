@@ -9,7 +9,9 @@ function usersIndex(req, res, next) {
 
 function usersShow(req, res, next) {
   User.findById(req.params.userId)
-    .populate('coursesCreated coursesCompleted currentCourse')
+    .populate('coursesCreated')
+    .populate({ path: 'coursesCompleted', populate: { path: 'createdBy' }})
+    .populate({ path: 'currentCourse', populate: { path: 'createdBy' }})
     .then(user => res.json(user))
     .catch(next);
 }

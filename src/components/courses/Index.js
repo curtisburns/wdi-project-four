@@ -25,10 +25,10 @@ export default class Index extends React.Component {
           </div>
           <div className="column is-6">
             <div className="course-list">
-              <Reveal effect="fadeInUp" >
-                {this.state.courses && this.state.courses.map(course =>
+              {this.state.courses && this.state.courses.map(course =>
 
-                  <Link key={course._id} to={`/browsecourses/startnewcourse/${course._id}`}>
+                <Link key={course._id} to={`/browsecourses/startnewcourse/${course._id}`}>
+                  <Reveal effect="fadeInUp" >
                     <div className="columns course-card">
 
                       {/* Thumbnail */}
@@ -57,11 +57,11 @@ export default class Index extends React.Component {
                       </div>
 
                     </div>
-                  </Link>
+                  </Reveal>
+                </Link>
 
-                )}
+              )}
 
-              </Reveal>
             </div>
 
           </div>

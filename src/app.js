@@ -60,7 +60,7 @@ class App extends React.Component {
         </Switch>
 
         <Switch>
-            <Route path="/users/:userId/" component={UsersShow} />
+          <Route path="/users/:userId/" component={UsersShow} />
         </Switch>
 
       </main>

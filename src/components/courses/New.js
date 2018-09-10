@@ -47,10 +47,10 @@ class CoursesNew extends React.Component {
       <section>
         <div className="background-overlay" onClick={this.handleCancel}>
         </div>
-          <Reveal effect="fadeIn">
-        <div className="modal1 course-new-modal">
-          <h2 className="course-new-title">Course Creation - Setup</h2>
-          <form onSubmit={this.handleSubmit}>
+        <Reveal effect="fadeIn">
+          <div className="modal1 course-new-modal">
+            <h2 className="course-new-title">Course Creation - Setup</h2>
+            <form onSubmit={this.handleSubmit}>
 
               {/* Course Title */}
               <FormField
@@ -85,45 +85,45 @@ class CoursesNew extends React.Component {
                 </div>
               </div>
 
-            {/* Course Subject */}
-            <FormField
-              name="subject"
-              value={this.state}
-              placeholder="E.g. Mathematics, Life Skills, Science"
-              label="What is the subject? (Only one)"
-              handleChange={this.handleChange}
-              labelStyle="course-new-label"
-              fieldStyle="course-new-field"
-            />
+              {/* Course Subject */}
+              <FormField
+                name="subject"
+                value={this.state}
+                placeholder="E.g. Mathematics, Life Skills, Science"
+                label="What is the subject? (Only one)"
+                handleChange={this.handleChange}
+                labelStyle="course-new-label"
+                fieldStyle="course-new-field"
+              />
 
-            {/* Course Description */}
-            <div className="field">
-              <label className="course-new-label" htmlFor="description">Add a description of your course</label>
-              <p className="course-new-label2 ">This will help students know what they are signing up for!</p>
-              <textarea
-                value={this.state.description}
-                className="course-description-field"
-                rows="8" cols="67"
-                name='description'
-                onChange={this.handleChange}/>
-            </div>
+              {/* Course Description */}
+              <div className="field">
+                <label className="course-new-label" htmlFor="description">Add a description of your course</label>
+                <p className="course-new-label2 ">This will help students know what they are signing up for!</p>
+                <textarea
+                  value={this.state.description}
+                  className="course-description-field"
+                  rows="8" cols="67"
+                  name='description'
+                  onChange={this.handleChange}/>
+              </div>
 
-            <hr/>
-
-
-
-            <div className="course-new-buttons">
-              <a onClick={this.handleCancel} className="button">Cancel</a>
-              <Button buttonText="Start adding content" buttonClass="" />
-            </div>
-
-          </form>
+              <hr/>
 
 
 
+              <div className="course-new-buttons">
+                <a onClick={this.handleCancel} className="button">Cancel</a>
+                <Button buttonText="Start adding content" buttonClass="" />
+              </div>
 
-        </div>
-      </Reveal>
+            </form>
+
+
+
+
+          </div>
+        </Reveal>
       </section>
     );
   }
