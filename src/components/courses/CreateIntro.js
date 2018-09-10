@@ -20,12 +20,12 @@ export default class CourseCreateIntro extends React.Component {
         </div>
         <Reveal effect="fadeIn">
           <div className="modal1 course-create-intro-modal">
-            
+
             {/* Course Creation Title */}
             <h2 className="create-intro-title">Course Creation</h2>
             <div className="create-intro-top-text">
               <p>
-                Great, you want to build a course! You, like many others will be able to feel the joy of teaching! We believe that if you have a passion for something, share it with others, and we provide you with the tools to do so.
+                Great, you want to build a course! You, like many others will be able to experience the joy of teaching! We believe that if you have a passion for something, share it with others, and we provide you with the tools to do so.
               </p>
             </div>
 
@@ -60,7 +60,7 @@ export default class CourseCreateIntro extends React.Component {
               <Button handleClick={this.handleCancel} buttonText="Cancel" buttonClass="" />
 
               <Link to={`${this.props.match.params[0]}/newcoursesetup`}>
-                <Button buttonText="Lets get started!" buttonClass="" />
+                <Button buttonText="Let's get started!" buttonClass="" />
               </Link>
             </div>
 

@@ -21,6 +21,7 @@ import PageContainer from './components/pages/PageContainer';
 import CourseCompleted from './components/courses/CourseCompleted';
 import CourseCompletedWithSkip from './components/courses/CourseCompletedWithSkip';
 import CourseCreateSave from './components/pages/CreateSave';
+import CoursesDelete from './components/courses/Delete';
 
 
 // Static
@@ -55,6 +56,7 @@ class App extends React.Component {
           <Route path="*/newcoursesetup" component={CoursesNew} />
           <Route path="*/startnewcourse/:courseId" component={CoursesShow} />
           <Route path="*/finish" component={CourseCreateSave} />
+          <Route path="*/quitcreation" component={CoursesDelete} />
         </Switch>
 
         <Switch>

@@ -81,7 +81,7 @@ class CoursesNew extends React.Component {
                 </div>
                 <div className="column is-7 course-new-thumbnail has-text-centered">
                   <p className="course-new-thumbnail">Preview</p>
-                  <img className="course-new-thumbnail"src={this.state.imageUrl} />
+                  {this.state.imageUrl ? <img className="course-new-thumbnail"src={this.state.imageUrl} /> : <div className="course-new-thumbnail" style={{height: 150, width: 150, margin: 'auto', background: 'lightgrey'}} />}
                 </div>
               </div>
 

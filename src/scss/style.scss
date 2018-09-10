@@ -78,7 +78,15 @@
   padding: 20px;
 }
 
-.course-show-modal, .course-create-intro-modal, .course-new-modal {
+.course-delete-modal {
+  height: 200px;
+}
+
+.course-save-modal {
+  height: 220px;
+}
+
+.course-show-modal, .course-create-intro-modal, .course-new-modal, .course-delete-modal, .course-save-modal {
   overflow-y: scroll;
   padding: 40px;
 }
@@ -366,7 +374,7 @@ div.course-show-rating {
 
 .course-show-buttons button, .course-show-buttons Link {
   font-family: 'Avenir next';
-  font-weight: 700;
+  font-weight: 500;
   color: white;
   background: rgb(181, 211, 255);
 }
@@ -467,36 +475,141 @@ div.course-show-rating {
 
 .course-new-buttons a, .course-new-buttons Button {
   font-family: 'Avenir next';
-  font-weight: 700;
+  font-weight: 500;
   color: white;
   background: rgb(181, 211, 255);
 }
 
 
-// Page index
 
-.page-index {
+
+// Course delete - during creation
+
+.course-delete-buttons {
+  text-align: right;
+}
+
+.course-delete-buttons button {
+  margin-left: 5px;
+}
+
+.course-delete-buttons button {
+  font-family: 'Avenir next';
+  font-weight: 500;
+  color: white;
+  background: rgb(181, 211, 255);
+}
+// Course Save/Create
+
+.course-save-buttons {
+  text-align: right;
+}
+
+.course-save-buttons button {
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.course-save-buttons button {
+  font-family: 'Avenir next';
+  font-weight: 500;
+  color: white;
+  background: rgb(181, 211, 255);
+}
+
+
+
+// Pages index
+
+.pages-index-column {
+  box-shadow: 0 5px 10px rgba(66, 66, 66, .5);
+}
+
+.pages-index {
+  padding: 50px 10px 0 10px;
   position: fixed;
-  max-height: 80vh;
-  padding-top: 60px;
+  max-height: 91vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.page-index-title {
+
+
+.pages-index-title {
   position: fixed;
   width: 100%;
+  margin-left: -10px;
+  padding: 10px 0 0 10px;
   height: 50px;
-  margin-left: -24px;
   z-index: 10;
-  background: grey;
+  background: white;
+  box-shadow: 0 2px 2px rgba(180, 180, 180, .5);
 }
 
-.page-index-card {
+.pages-index-container {
+  padding-top: 55px;
+}
+
+.pages-index-card {
   height: 80px;
+  box-shadow: 0 0 5px rgba(180, 180, 180, .5);
+  border-radius: 4px;
+  margin: 3px 0;
+  padding: 10px;
+}
+
+.pages-index-buttons {
+  position: fixed;
+  bottom: 0;
+  background: white;
+  box-shadow: 0 -2px 2px rgba(180, 180, 180, .5);
+  width: 100%;
+  max-width: 25vw;
+  height: 70px;
+  margin-left: -10px;
+  padding: 10px 0 0 10px;
+}
+
+.pages-index-buttons button, .pages-index-buttons div a {
+  font-family: 'Avenir next';
+  font-weight: 500;
+  color: white;
+background: rgb(181, 211, 255);
 }
 
 // Templates
+
+// Templates Index
+
+.templates-index {
+  background: rgb(149, 247, 178);
+  padding: 80px 10px;
+  height: auto;
+  min-height: 100vh;
+}
+
+.template-title {
+  font-family: 'Avenir next';
+  font-weight: 700;
+  color: white;
+  font-size: calc(20px + 0.8vw);
+}
+
+.templates-index .column {
+  padding: 10px;
+}
+
+.templates-index .column img {
+  transition: transform .2s cubic-bezier(0.51, 0.01, 0.37, 1.8);
+}
+
+.templates-index .column img:hover {
+  transform: scale(1.06)
+}
+
+
+
+// Pages new
 
 .template-form-container {
   position: fixed;

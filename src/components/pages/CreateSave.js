@@ -15,20 +15,22 @@ export default class CourseCreateSave extends React.Component {
   render() {
     return(
       <section>
-        <div className="background-overlay">
+        <div className="background-overlay" onClick={this.handleCancel}>
         </div>
-        <div className="modal1">
-          <h2 className="title is-3">Course Creation</h2>
-          <p>
-            The course looks great! And soon other people with be able to learn from it!
+        <div className="modal1 course-save-modal">
+          <h2 className="course-new-title">Course Creation - Finish</h2>
+          <p className="course-new-label">{
+            'Brilliant! You\'re all done. The course looks great! And soon other people with be able to learn from it! Let\'s get it deployed.'}
           </p>
 
-          <Link to='/browsecourses'>
-            <Button buttonText="Finish" buttonClass="" />
-          </Link>
+          <div className="course-save-buttons">
 
-          <Button handleClick={this.handleCancel} buttonText="Cancel" buttonClass="" />
+            <Button handleClick={this.handleCancel} buttonText="Cancel" buttonClass="" />
 
+            <Link to='/browsecourses'>
+              <Button buttonText="Finish" buttonClass="" />
+            </Link>
+          </div>
         </div>
       </section>
     );

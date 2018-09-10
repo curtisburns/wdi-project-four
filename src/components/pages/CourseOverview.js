@@ -37,7 +37,7 @@ class CourseOverview extends React.Component {
               templates={this.state.templates}
               handleClick={this.handleClick}/>
           </div>
-          <div className="column is-3">
+          <div className="column is-3 pages-index-column">
             <PagesIndex courseId={this.props.match.params.courseId}/>
           </div>
         </div>
