@@ -8,6 +8,50 @@
   padding: 0em;
 }
 
+.columns {
+  margin: 0;
+}
+
+.columns:not(:last-child) {
+  margin: 0;
+}
+
+
+// Helper
+
+.front-of-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.section-normaliser {
+  height: auto;
+  min-height: 95vh;
+  padding: 0;
+  margin-bottom: 80px;
+}
+
+// Footer
+
+.footer {
+  position: relative;
+  padding: 0;
+}
+
+.footer-gradient, .footer-main {
+  position: absolute;
+  bottom: -15px;
+}
+
+.footer-gradient {
+  z-index: 0;
+  background: rgb(149, 247, 178);
+}
+.footer-main {
+  z-index: 1;
+}
+
+
 
 // modals
 
@@ -34,11 +78,12 @@
   padding: 20px;
 }
 
-.course-show-modal {
+.course-show-modal, .course-create-intro-modal, .course-new-modal {
   overflow-y: scroll;
+  padding: 40px;
 }
 
-.register-modal {
+.register-modal, .login-modal {
   height: auto;
   width: 40%;
   min-width: 320px;
@@ -49,12 +94,16 @@
   padding: 40px calc(20px + 5vw);
   border-radius: 10px;
   box-shadow: 0 5px 10px rgba(41, 87, 55, 50);
+  z-index: 3;
 }
 
 // Auth
 
 .auth-background {
-  background: rgb(149, 247, 178)
+  background: rgb(149, 247, 178);
+  height: 95vh;
+  margin-bottom: 80px;
+  margin-top: 20px;
 }
 
 .auth-title {
@@ -67,24 +116,24 @@
 
 // Register
 
-.register-div {
+.register-div, .login-div {
   position: relative;
 }
 
-.register-title {
+.register-title , .login-title {
   font-family: 'Avenir next';
   font-weight: 500;
   font-size: calc(14px + 0.6vw);
   margin-bottom: 3vh;
 }
 
-.register-label {
+.register-label, .login-label, .course-new-label {
   font-size: calc(12px + 0.3vw);
   font-family: 'Avenir next';
   font-weight: 300;
 }
 
-.register-field {
+.register-field, .login-field, .course-new-field {
   font-size: calc(12px + 0.3vw);
   font-family: 'Avenir next';
   font-weight: 300;
@@ -121,7 +170,7 @@
   height: 2vh;
 }
 
-.register-submit {
+.register-submit, .login-submit {
   font-size: calc(8px + 0.3vw);
   font-family: 'Avenir next';
   font-weight: 600;
@@ -130,34 +179,299 @@
   padding-top: calc(0.375em - 3px);
 }
 
+// Login
+
+.login-show-hide {
+  position: absolute;
+  top: 56%;
+  right: 0;
+  font-size: calc(10px + 0.2vw);
+  font-family: 'Avenir next';
+  font-weight: 300;
+  height: 2vh;
+}
+
+.login-bottom-text {
+  font-size: calc(10px + 0.2vw);
+  font-family: 'Avenir next';
+  font-weight: 300;
+  position: absolute;
+  right: 0%;
+  bottom: 5%;
+}
+
+// Course index
+
+.course-index {
+  background: rgb(149, 247, 178);
+  padding-top: 20px;
+  margin-top: 40px;
+}
+
+.course-list {
+  padding-bottom: 200px;
+}
+.course-card {
+  background: white;
+  margin: 30px 0;
+  box-shadow: 0 5px 10px rgba(66, 66, 66, .5);
+  border-radius: 4px;
+}
+
+.course-index-thumbnail {
+  padding: 10px;
+}
+
+.course-index-thumbnail img {
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  max-height: 150px;
+  max-width: 150px;
+}
+
+.course-index-middle {
+  padding: 20px 10px;
+  margin: 0;
+}
+
+.course-index-title {
+  min-height: 50px;
+}
+
+.course-index-title h3 {
+  font-family: 'Avenir next';
+  font-weight: 300;
+  color: rgb(90, 90, 90);
+}
+
+.course-index-title h4 {
+  font-family: 'Avenir next';
+  font-weight: 300;
+  color: rgb(90, 90, 90);
+}
+
+.course-index-rating {
+  padding: 10px;
+}
+
+.course-index-rating img {
+  max-height: 50px;
+  max-width: 50px;
+  width: 100%;
+  transform: translateY(10px);
+}
+
+.fadeInUp {
+    animation: fadeInUp ease-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    20% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Course Show
+.fadeIn {
+    animation: fadeIn .1s linear;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.course-show-img {
+  padding: 10px;
+}
+
+.course-show-text-container {
+    position: relative;
+}
+.course-show-top-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+.course-show-title {
+  font-family: 'Avenir next';
+  font-weight: 300;
+  color: rgb(90, 90, 90);
+  font-size: 1.8em;
+  margin-bottom: 12px;
+}
+
+.course-show-created-by {
+  font-family: 'Avenir next';
+  font-weight: 300;
+  color: rgb(90, 90, 90);
+}
+
+.course-show-description {
+  font-family: 'Avenir next';
+  color: rgb(90, 90, 90);
+}
+
+.course-show-description p {
+  margin: 10px;
+}
+
+div.course-show-rating {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.course-show-info1 {
+  margin: 10px;
+  display: inline;
+  font-weight: 500;
+
+}
+.course-show-info2 {
+  margin: 10px;
+}
+
+.course-show-description img {
+  padding-left: 8px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.course-show-buttons {
+  text-align: right;
+}
+
+.course-show-buttons button {
+  margin: 5px;
+
+}
+
+.course-show-buttons button, .course-show-buttons Link {
+  font-family: 'Avenir next';
+  font-weight: 700;
+  color: white;
+  background: rgb(181, 211, 255);
+}
+
+// Course Creation Intro
+
+.create-intro-title {
+    font-family: 'Avenir next';
+    font-weight: 300;
+    color: rgb(90, 90, 90);
+    font-size: 1.8em;
+    margin-bottom: 12px;
+}
+
+.create-intro-top-text {
+  font-family: 'Avenir next';
+  font-weight: 300;
+  color: rgb(90, 90, 90);
+  font-size: 1em;
+  text-indent: 2em;
+}
+
+.create-intro-instructions {
+  margin-top: 10px;
+}
+
+.create-intro-instructions p{
+  font-family: 'Avenir next';
+  font-weight: 300;
+  color: rgb(90, 90, 90);
+  font-size: 1em;
+}
+.create-intro-instructions p.i{
+  margin: 20px 0;
+}
+
+.create-intro-instructions p.i1, p.i2, p.i3{
+  text-align: center;
+  margin: 10px 0;
+}
+
+
 
 // Course New Form
 
-.label2 {
-  font-size: 10px;
-}
-.course-title-field {
-  width: 50%;
-  height: 20px;
-  font-size: .8em;
-}
-
-.course-thumbnail-field {
-  width: 40%;
-  height: 20px;
-  font-size: .8em;
+.course-new-title {
+    font-family: 'Avenir next';
+    font-weight: 300;
+    color: rgb(90, 90, 90);
+    font-size: 1.8em;
+    margin-bottom: 12px;
 }
 
-.course-subject-field {
+.course-new-label2 {
+  font-size: calc(10px + 0.2vw);
+  font-family: 'Avenir next';
+  font-weight: 300;
+}
+
+.course-new-modal form div {
+  margin: 40px 0;
+}
+
+.course-new-thumbnail img {
   width: 50%;
-  height: 20px;
-  font-size: .8em;
+}
+
+.course-new-modal form div.course-new-thumbnail {
+  margin: 0;
+}
+
+.course-new-thumbnail p {
+  font-size: calc(10px + 0.8vw);
+  font-family: 'Avenir next';
+  font-weight: 300;
 }
 
 .course-description-field {
-  font-size: .9em;
   width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: calc(10px + 0.6vw);
+  color: rgb(90, 90, 90);
+  font-family: 'Avenir next';
+  font-weight: 300;
+  border-radius: 4px;
+  border-color: rgb(180, 180, 180);
 }
+
+.course-new-buttons {
+  text-align: right;
+}
+
+.course-new-buttons button {
+  margin-left: 5px;
+
+}
+
+.course-new-buttons a, .course-new-buttons Button {
+  font-family: 'Avenir next';
+  font-weight: 700;
+  color: white;
+  background: rgb(181, 211, 255);
+}
+
 
 // Page index
 

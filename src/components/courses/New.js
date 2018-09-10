@@ -4,6 +4,8 @@ import axios from 'axios';
 // Components
 import Button from '../common/Button';
 import FormField from '../common/FormField';
+import Reveal from 'react-reveal/Reveal';
+
 
 //Lib
 import Auth from '../../lib/Auth';
@@ -45,30 +47,43 @@ class CoursesNew extends React.Component {
       <section>
         <div className="background-overlay" onClick={this.handleCancel}>
         </div>
-        <div className="modal1">
-          <h2 className="title is-3">Course Creation</h2>
+          <Reveal effect="fadeIn">
+        <div className="modal1 course-new-modal">
+          <h2 className="course-new-title">Course Creation - Setup</h2>
           <form onSubmit={this.handleSubmit}>
 
-            {/* Course Title */}
-            <FormField
-              name="title"
-              value={this.state}
-              placeholder="E.g. An introduction to..."
-              label="Give your course a title"
-              label2="Be sure to make this as representative as possible to what your course teaches as to not confuse students"
-              handleChange={this.handleChange}
-              fieldStyle="course-title-field"
-            />
+              {/* Course Title */}
+              <FormField
+                name="title"
+                value={this.state}
+                placeholder="E.g. An introduction to..."
+                label="Give your course a title"
+                label2="Be sure to make this as representative as possible to what your course teaches as to not confuse students"
+                handleChange={this.handleChange}
+                labelStyle="course-new-label"
+                label2Style="course-new-label2"
+                fieldStyle="course-new-field"
+              />
 
-            {/* Course Thumbnail */}
-            <FormField
-              name="imageUrl"
-              value={this.state}
-              placeholder="E.g. http://..."
-              label="Add a thumbnail"
-              handleChange={this.handleChange}
-              fieldStyle="course-thumbnail-field"
-            />
+              {/* Course Thumbnail */}
+              <div className="columns">
+                <div className="column is-5">
+                  <FormField
+                    name="imageUrl"
+                    value={this.state}
+                    placeholder="E.g. http://..."
+                    label="Add a thumbnail (square)"
+                    handleChange={this.handleChange}
+                    labelStyle="course-new-label"
+                    fieldStyle="course-new-field"
+                  />
+
+                </div>
+                <div className="column is-7 course-new-thumbnail has-text-centered">
+                  <p className="course-new-thumbnail">Preview</p>
+                  <img className="course-new-thumbnail"src={this.state.imageUrl} />
+                </div>
+              </div>
 
             {/* Course Subject */}
             <FormField
@@ -76,15 +91,15 @@ class CoursesNew extends React.Component {
               value={this.state}
               placeholder="E.g. Mathematics, Life Skills, Science"
               label="What is the subject? (Only one)"
-              label2="Be sure to make this as representative as possible to what your course teaches as to not confuse students"
               handleChange={this.handleChange}
-              fieldStyle="course-subject-field"
+              labelStyle="course-new-label"
+              fieldStyle="course-new-field"
             />
 
             {/* Course Description */}
             <div className="field">
-              <label className="label" htmlFor="description">Add a description of your course</label>
-              <p className="label2">This will help students know what they are signing up for!</p>
+              <label className="course-new-label" htmlFor="description">Add a description of your course</label>
+              <p className="course-new-label2 ">This will help students know what they are signing up for!</p>
               <textarea
                 value={this.state.description}
                 className="course-description-field"
@@ -93,11 +108,14 @@ class CoursesNew extends React.Component {
                 onChange={this.handleChange}/>
             </div>
 
+            <hr/>
 
 
 
-            <Button buttonText="Start adding content" buttonClass="" />
-            <a onClick={this.handleCancel} className="button">Cancel</a>
+            <div className="course-new-buttons">
+              <a onClick={this.handleCancel} className="button">Cancel</a>
+              <Button buttonText="Start adding content" buttonClass="" />
+            </div>
 
           </form>
 
@@ -105,6 +123,7 @@ class CoursesNew extends React.Component {
 
 
         </div>
+      </Reveal>
       </section>
     );
   }

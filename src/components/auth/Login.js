@@ -22,7 +22,6 @@ class AuthLogin extends React.Component {
   }
 
   handleChange = ({ target: {name, value} }) => {
-    console.log('Im firing');
     this.setState({ [name]: value });
   }
 
@@ -42,36 +41,45 @@ class AuthLogin extends React.Component {
 
   render(){
     return(
-      <section>
-        <form onSubmit={this.handleSubmit}>
+      <section className="login-modal">
+        <div className="login-div">
 
-          {/* Email address or Username*/}
-          <FormField
-            handleChange={this.handleChange}
-            name="login"
-            label="Please enter your username or email address"
-            label2="Testing label 2"
-            placeholder="Example@email.com"
-            value={this.state}/>
+          <h6 className="login-title">Log in</h6>
+          <form onSubmit={this.handleSubmit}>
 
-          {/* Password */}
-          <FormField
-            handleChange={this.handleChange}
-            name="password"
-            label="Choose a password"
-            label2=""
-            placeholder=""
-            type={this.state.passwordHidden ? 'password' : 'text'}
-            value={this.state}/>
+            {/* Email address or Username*/}
+            <FormField
+              handleChange={this.handleChange}
+              name="login"
+              label="Please enter your username or email address"
+              placeholder="Example@email.com"
+              labelStyle="login-label"
+              fieldStyle="login-field"
+              value={this.state}/>
 
-          <a className="button" onClick={this.toggleShowPassword}>
-            {this.state.passwordHidden ? 'Show password' : 'Hide password'}
-          </a>
+            <a className="button login-show-hide" onClick={this.toggleShowPassword}>
+              {this.state.passwordHidden ? 'Show password' : 'Hide password'}
+            </a>
 
-          <button>Log in</button>
+            {/* Password */}
+            <FormField
+              handleChange={this.handleChange}
+              name="password"
+              label="Choose a password"
+              label2=""
+              placeholder=""
+              type={this.state.passwordHidden ? 'password' : 'text'}
+              value={this.state}
+              labelStyle="login-label"
+              fieldStyle="login-field"/>
 
-        </form>
-        <p> Not a member? <Link to="/auth/register">Register (for free!)</Link></p>
+            <button className="login-submit">Log in</button>
+
+          </form>
+          <div className="login-bottom-text">
+            <p> Not a member? <Link to="/auth/register">Register (for free!)</Link></p>
+          </div>
+        </div>
       </section>
     );
   }

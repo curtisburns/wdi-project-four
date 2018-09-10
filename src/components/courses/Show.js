@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // Components
 import Button from '../common/Button';
+import Reveal from 'react-reveal/Reveal';
 
 export default class CoursesShow extends React.Component {
   state = {}
@@ -18,31 +19,73 @@ export default class CoursesShow extends React.Component {
   }
 
   render() {
+    console.log(this.state.completedCourse);
     return(
       <section>
         <div className="background-overlay" onClick={this.handleCancel}>
         </div>
+        <Reveal effect="fadeIn">
         <div className="modal1 course-show-modal">
           {this.state.title &&
             <div>
 
-              <div>
-                <img src={this.state.imageUrl} />
+              {/* Course image and Title */}
+              <div className="columns">
+                <div className="column is-half">
+                  <div className="course-show-img">
+                    <img src={this.state.imageUrl} />
+                  </div>
+
+                </div>
+                <div className="column is-half course-show-text-container">
+                  <div className="course-show-top-text">
+                    <h2 className="course-show-title">{this.state.title}</h2>
+                    <h4 className="course-show-created-by">Created by {this.state.createdBy.username}</h4>
+                  </div>
+                </div>
+
               </div>
 
-              <h2 className="title is-3">{this.state.title}</h2>
-              <h4 className="subtitle is-5">Created by {this.state.createdBy.username}</h4>
-              <p>{this.state.description}</p>
+              <hr />
 
-              <Link to={`/course/${this.props.match.params.courseId}/page/${this.state.pages[0]._id}`} >
+              {/* Description */}
+              <div className="course-show-description">
+                <p>{this.state.description}</p>
+
+
+                <div className="columns course-show-rating">
+                  <div className="column is-1">
+                    <img src="/assets/images/purepng.com-silver-starsilverchemical-elementshinywhitetomic-number-47metalservice-silver-star-1701528983711947cf.png" />
+                  </div>
+                  <div className="column is-11">
+                    {this.state.completedCourse.length === 0 ? <p className="course-show-info1">Be the first to complete this course!</p> : <p className="course-show-info1" >This course has received {this.state.starRating|| 0} stars from the {this.state.completedCourse} students who have completed this course.</p>
+                    }
+                  </div>
+                </div>
+
+
+
+                <p className="course-show-info2"> There are {this.state.enrolled && this.state.enrolled.length || 0} people currently enrolled on this course.</p>
+
+              </div>
+
+
+              <hr />
+
+              <div className="course-show-buttons">
+
+                <Button handleClick={this.handleCancel} buttonText="Cancel" buttonClass="" />
+                <Link to={`/course/${this.props.match.params.courseId}/page/${this.state.pages[0]._id}`} >
                 <Button buttonText="Enroll and start!" buttonClass="" />
-              </Link>
 
-              <Button handleClick={this.handleCancel} buttonText="Cancel" buttonClass="" />
+              </Link>
+              </div>
+
             </div>
           }
 
         </div>
+      </Reveal>
       </section>
     );
   }
