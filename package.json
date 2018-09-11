@@ -14,7 +14,7 @@
     "start:client": "webpack-dev-server",
     "seed": "node db/seeds",
     "build": "webpack -p",
-    "start": "yarn build && node index",
+    "start": "yarn build && node index"
   },
   "engines": {
     "node": "9.10.0"
