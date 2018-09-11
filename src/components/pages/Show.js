@@ -79,7 +79,7 @@ class PagesShow extends React.Component {
   render() {
 
     return(
-      <section>
+      <section className="page-show">
 
         {/* Template selected as specified in page data */}
         {this.renderTemplate()}

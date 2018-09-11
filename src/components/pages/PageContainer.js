@@ -96,7 +96,7 @@ class PageContainer extends React.Component {
     const isFirstPage = this.state.pageNumber === 0;
     const isLastPage = this.state.pages && pageNumber === (this.state.pages.length-1);
     return(
-      <div>
+      <div style={{height: '100%'}}>
         {this.state.showSkipModal &&
           <SkipModal
             handleSkipCancel={this.handleSkipCancel}

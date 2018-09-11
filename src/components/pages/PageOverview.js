@@ -56,9 +56,9 @@ class PageOverview extends React.Component {
 
   render() {
     return(
-      <div>
+      <div style={{height: '100%'}}>
 
-        <div className="columns">
+        <div className="columns" style={{height: '100%', paddingBottom: '60px'}}>
           <div className="column is-9">
             {this.state.templateNumber &&
               <PagesShow page={this.state}/>}
@@ -75,6 +75,7 @@ class PageOverview extends React.Component {
 
           </div>
         </div>
+        <div style={{height: 60, width: '100%'}}/>
 
       </div>
     );

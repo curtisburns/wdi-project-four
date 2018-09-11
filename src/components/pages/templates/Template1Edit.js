@@ -21,42 +21,46 @@ export default function Template1Edit({page, handleChange, handleContentChange, 
 
         <form onSubmit={handleEditSubmit}>
 
-          {/* Image Url */}
-          <FormField
-            handleChange={handleChange}
-            label="Image Url"
-            label2=""
-            placeholder="E.g. http://..."
-            name="imageUrl"
-            value={page}
-            labelStyle="register-label"
-            fieldStyle="register-field"
-          />
+          <Reveal effect="fadeIn">
 
-          {/* Title */}
-          <FormField
-            handleChange={handleContentChange}
-            label="Title"
-            label2=""
-            dataType="title"
-            name="content"
-            value={page.elements.filter(element =>
-              element.contentType === 'title')[0]}
-            labelStyle="register-label"
-            fieldStyle="register-field"
-          />
+            {/* Image Url */}
+            <FormField
+              handleChange={handleChange}
+              label="Image Url"
+              label2=""
+              placeholder="E.g. http://..."
+              name="imageUrl"
+              value={page}
+              labelStyle="template-label"
+              fieldStyle="template-field"
+            />
 
-          {/* Text */}
-          <div className="field">
-            <label className="label register-label" htmlFor="text">Body</label>
-            <textarea className="text-body-field"
+            {/* Title */}
+            <FormField
+              handleChange={handleContentChange}
+              label="Title"
+              label2=""
+              dataType="title"
+              name="content"
               value={page.elements.filter(element =>
-                element.contentType === 'text')[0] ? page.elements.filter(element =>
-                  element.contentType === 'text')[0].content : ''}
-              name='text'
-              data-type="text"
-              onChange={handleContentChange}/>
-          </div>
+                element.contentType === 'title')[0]}
+              labelStyle="template-label"
+              fieldStyle="template-field"
+            />
+
+            {/* Text */}
+            <div className="field">
+              <label className="label template-label" htmlFor="text">Body</label>
+              <textarea className="text-body-field"
+                value={page.elements.filter(element =>
+                  element.contentType === 'text')[0] ? page.elements.filter(element =>
+                    element.contentType === 'text')[0].content : ''}
+                name='text'
+                data-type="text"
+                onChange={handleContentChange}/>
+            </div>
+
+          </Reveal>
 
           <div className="template-edit-buttons level">
 
