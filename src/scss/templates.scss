@@ -1,0 +1,181 @@
+// Templates
+
+// Templates Index
+
+.templates-index {
+  background: rgb(149, 247, 178);
+  padding: 80px 10px;
+  height: auto;
+  min-height: 100vh;
+}
+
+.template-title {
+  font-family: 'Avenir next';
+  font-weight: 700;
+  color: white;
+  font-size: calc(20px + 0.8vw);
+}
+
+.templates-index .column {
+  padding: 10px;
+}
+
+.templates-index .column img {
+  transition: transform .2s cubic-bezier(0.51, 0.01, 0.37, 1.8);
+}
+
+.templates-index .column img:hover {
+  transform: scale(1.06)
+}
+
+
+
+// Pages new
+
+.template-edit-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: white;
+  box-shadow: 0 -2px 2px rgba(180, 180, 180, .5);
+  width: 100vw;
+  height: 58px;
+  padding: 0 0 0 10px;
+}
+
+.template-edit-buttons button, .template-edit-buttons a {
+  font-family: 'Avenir next';
+  font-weight: 500;
+  color: white;
+  background: rgb(181, 211, 255);
+}
+
+.template-edit-buttons button {
+  margin-right: 10px;
+}
+
+.slideFromLeft {
+    animation: slideFromLeft ease-out;
+}
+
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(1500px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.template-form form {
+  margin-top: 70px;
+}
+
+
+.template-form {
+  padding: 50px 10px 0 10px;
+  position: fixed;
+  height: 94vh;
+  width: 25%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-shadow: 0 5px 10px rgba(66, 66, 66, .5);
+}
+
+.text-body-field {
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: calc(8px + 0.6vw);
+  color: rgb(90, 90, 90);
+  font-family: 'Avenir next';
+  font-weight: 300;
+  border-radius: 4px;
+  border-color: rgb(180, 180, 180);
+}
+
+
+// Template 1
+
+.t1-section {
+  width: 100%;
+  background: yellow;
+  height: 89vh;
+}
+
+.t1-img-container {
+  margin: 20px 0;
+  height: 70%;
+}
+
+.t1-img, .t1-img-placeholder {
+  margin: 30px auto;
+  max-width: 80%;
+  max-height: 400px;
+}
+
+.t1-img-placeholder {
+  height: 350px;
+}
+
+.t1-text-container {
+  margin: 0 auto;
+  width: 80%;
+  height: 30%;
+}
+
+.t1-img-placeholder, .t1-title-placeholder, .t1-text-placeholder {
+  background: grey;
+}
+
+.t1-title-placeholder {
+  height: 30px;
+  width: 30%;
+  border-radius: 20px;
+}
+
+.t1-text-placeholder {
+  height: 20px;
+  width: 100%;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+// Template 2
+
+// Template 3
+
+.t3-section {
+  width: 100%;
+  background: yellow;
+  height: 100vh;
+}
+
+.t3-video-placeholder {
+  background: grey;
+}
+//
+.t3-video-container {
+  box-sizing: border-box;
+  padding: 30px;
+
+}
+
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.iframe-container iframe, .t3-video-placeholder {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}

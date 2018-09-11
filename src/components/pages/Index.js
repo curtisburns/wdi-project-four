@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 //Components
-import Button from '../common/Button';
 import Reveal from 'react-reveal/Reveal';
 
 //Lib
@@ -56,29 +55,29 @@ class PageIndex extends React.Component {
 
         {/* Pages Index Buttons */}
         <div className="pages-index-buttons columns is-mobile">
-            <Reveal effect="fadeIn">
-          <div className="column is-2">
-            {this.state.selectedPageId && <Link className="button" to={`/coursecreation/${this.props.courseId}/editpage/${this.state.selectedPageId}`}><i className="far fa-edit"></i></Link>}
+          <Reveal effect="fadeIn">
+            <div className="column is-2">
+              {this.state.selectedPageId && <Link className="button" to={`/coursecreation/${this.props.courseId}/editpage/${this.state.selectedPageId}`}><i className="far fa-edit"></i></Link>}
 
-          </div>
+            </div>
 
-          <div className="column is-2">
-            {this.state.selectedPageId && <button onClick={this.handleDelete} className="button">
-              <i className="far fa-trash-alt"></i>
-            </button>}
-          </div>
+            <div className="column is-2">
+              {this.state.selectedPageId && <button onClick={this.handleDelete} className="button">
+                <i className="far fa-trash-alt"></i>
+              </button>}
+            </div>
 
-          <div className="column is-2">
-          </div>
+            <div className="column is-2">
+            </div>
 
-          <div className="column is-3">
-            {this.state.pages.length !== 0 && <Link className="button" to={`/coursecreation/${this.props.courseId}/pages/finish`}>Finish</Link>}
-          </div>
+            <div className="column is-3">
+              {this.state.pages.length !== 0 && <Link className="button" to={`/coursecreation/${this.props.courseId}/pages/finish`}>Finish</Link>}
+            </div>
 
-          <div className="column is-3">
-            <Link to={`/coursecreation/${this.props.courseId}/pages/quitcreation`} className="button">Quit</Link>
-          </div>
-        </Reveal>
+            <div className="column is-3">
+              <Link to={`/coursecreation/${this.props.courseId}/pages/quitcreation`} className="button">Quit</Link>
+            </div>
+          </Reveal>
 
         </div>
       </section>

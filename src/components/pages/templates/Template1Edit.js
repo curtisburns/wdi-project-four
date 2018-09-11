@@ -7,13 +7,15 @@ import React from 'react';
 // Components
 import FormField from '../../common/FormField';
 import Button from '../../common/Button';
+import Reveal from 'react-reveal/Reveal';
+
 
 export default function Template1Edit({page, handleChange, handleContentChange, handleEditSubmit, handleEditCancel}) {
   return(
     <section>
-      <div className="template-form-container">
+      <div className="template-form">
 
-        <div className="template-form-title">
+        <div className="pages-index-title">
           <h2 className="subtitle is-4">Page Edit</h2>
         </div>
 
@@ -27,7 +29,8 @@ export default function Template1Edit({page, handleChange, handleContentChange, 
             placeholder="E.g. http://..."
             name="imageUrl"
             value={page}
-            fieldStyle=""
+            labelStyle="register-label"
+            fieldStyle="register-field"
           />
 
           {/* Title */}
@@ -39,13 +42,14 @@ export default function Template1Edit({page, handleChange, handleContentChange, 
             name="content"
             value={page.elements.filter(element =>
               element.contentType === 'title')[0]}
-            fieldStyle=""
+            labelStyle="register-label"
+            fieldStyle="register-field"
           />
 
           {/* Text */}
           <div className="field">
-            <label className="label" htmlFor="text">Body</label>
-            <textarea
+            <label className="label register-label" htmlFor="text">Body</label>
+            <textarea className="text-body-field"
               value={page.elements.filter(element =>
                 element.contentType === 'text')[0] ? page.elements.filter(element =>
                   element.contentType === 'text')[0].content : ''}
@@ -54,8 +58,23 @@ export default function Template1Edit({page, handleChange, handleContentChange, 
               onChange={handleContentChange}/>
           </div>
 
-          <Button buttonClass="" buttonText="Save" />
-          <a onClick={handleEditCancel} className="button">Leave and cancel changes</a>
+          <div className="template-edit-buttons level">
+
+            <Reveal effect="slideFromLeft" duration={1500}>
+
+              <div className="level-left">
+                <a onClick={handleEditCancel} className="button">Leave and cancel changes</a>
+              </div>
+              <div className="level-right">
+                <Button buttonClass="" buttonText="Save" />
+              </div>
+
+            </Reveal>
+
+
+
+
+          </div>
 
         </form>
 

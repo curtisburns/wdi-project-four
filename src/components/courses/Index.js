@@ -28,7 +28,7 @@ export default class Index extends React.Component {
               {this.state.courses && this.state.courses.map(course =>
 
                 <Link key={course._id} to={`/browsecourses/startnewcourse/${course._id}`}>
-                  <Reveal effect="fadeInUp" >
+                  <Reveal effect="fadeInUp">
                     <div className="columns course-card">
 
                       {/* Thumbnail */}
