@@ -58,7 +58,7 @@ class PageOverview extends React.Component {
     return(
       <div style={{height: '100%'}}>
 
-        <div className="columns" style={{height: '100%', paddingBottom: '60px'}}>
+        <div className="columns" style={{height: '100%', paddingBottom: '30px'}}>
           <div className="column is-9">
             {this.state.templateNumber &&
               <PagesShow page={this.state}/>}

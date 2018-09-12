@@ -55,6 +55,8 @@ class PagesShow extends React.Component {
   }
 
 
+
+
   renderTemplate() {
     console.log(this.state);
     const templateNumber = this.props.page ? this.props.page.templateNumber : this.props.templateNumber;
@@ -71,13 +73,13 @@ class PagesShow extends React.Component {
       canProgress={this.props.canProgress}
       isFirstPage={this.props.isFirstPage}
       isLastPage={this.props.isLastPage}
+      handleMultipleChoice={this.props.handleMultipleChoice}
       skipped={this.props.skipped}
       creationMode={this.state.creationMode}
     />;
   }
 
   render() {
-
     return(
       <section className="page-show">
 

@@ -37,8 +37,8 @@ export default function Template2Edit({page, handleChange, handleContentChange, 
 
             {/* Text1 */}
             <div className="field">
-              <label className="label template-label" htmlFor="text">Paragraph 1</label>
-              <textarea className="text-body-field"
+              <label className="label template-label" htmlFor="text1">Paragraph 1</label>
+              <textarea className="text-body-field2"
                 value={page.elements.filter(element =>
                   element.contentType === 'text1')[0] ? page.elements.filter(element =>
                     element.contentType === 'text1')[0].content : ''}
@@ -49,8 +49,8 @@ export default function Template2Edit({page, handleChange, handleContentChange, 
 
             {/* Text2 */}
             <div className="field">
-              <label className="label template-label" htmlFor="text">Paragraph 2</label>
-              <textarea className="text-body-field"
+              <label className="label template-label" htmlFor="text2">Paragraph 2</label>
+              <textarea className="text-body-field2"
                 value={page.elements.filter(element =>
                   element.contentType === 'text2')[0] ? page.elements.filter(element =>
                     element.contentType === 'text2')[0].content : ''}
@@ -61,8 +61,8 @@ export default function Template2Edit({page, handleChange, handleContentChange, 
 
             {/* Text3 */}
             <div className="field">
-              <label className="label template-label" htmlFor="text">Paragraph 3</label>
-              <textarea className="text-body-field"
+              <label className="label template-label" htmlFor="text3">Paragraph 3</label>
+              <textarea className="text-body-field2"
                 value={page.elements.filter(element =>
                   element.contentType === 'text3')[0] ? page.elements.filter(element =>
                     element.contentType === 'text3')[0].content : ''}

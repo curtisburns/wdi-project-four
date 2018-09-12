@@ -6,6 +6,7 @@ import axios from 'axios';
 // Components
 import PagesShow from './Show';
 import SkipModal from './SkipModal';
+import TryAgainModal from './TryAgainModal';
 
 // Lib
 import Auth from '../../lib/Auth';
@@ -15,13 +16,33 @@ class PageContainer extends React.Component {
     pageNumber: 0,
     canProgress: false,
     skipped: false,
-    showSkipModal: false
+    showSkipModal: false,
+    showTryAgain: false
   }
 
   componentDidMount(){
     axios.get(`/api/courses/${this.props.match.params.courseId}`)
       .then(res => this.setState(res.data));
   }
+
+  // Choice sometimes comes back as null??? Why?
+
+  handleMultipleChoice = ({ target }) => {
+    const choice = target.getAttribute('data-ans');
+    if(choice === null) {
+      return;
+    } else if (choice === 'answer1') {
+      this.setState({canProgress: true});
+    } else {
+      this.setState({ showTryAgain: true });
+    }
+  }
+
+  handleTryAgain = () => {
+    this.setState({ showTryAgain: false });
+    console.log(showTryAgain);
+  }
+
 
   handleGotIt = () => {
     this.setState({ canProgress: true });
@@ -103,6 +124,11 @@ class PageContainer extends React.Component {
             handleSkip={this.handleSkip}
           />}
 
+        {this.state.showTryAgain &&
+          <TryAgainModal
+            handleTryAgain={this.handleTryAgain}
+          />}
+
         {this.state.pages &&
               <PagesShow
                 templateNumber={this.state.pages[pageNumber].templateNumber}
@@ -114,6 +140,7 @@ class PageContainer extends React.Component {
                 handleFinish={this.handleFinish}
                 handleFinishWithSkip={this.handleFinishWithSkip}
                 handleGotIt={this.handleGotIt}
+                handleMultipleChoice={this.handleMultipleChoice}
                 canProgress={this.state.canProgress}
                 isFirstPage={isFirstPage}
                 isLastPage={isLastPage}

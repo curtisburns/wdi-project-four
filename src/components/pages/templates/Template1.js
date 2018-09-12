@@ -60,32 +60,33 @@ export default function Template1({page, handleShowSkipModal, handleNext, handle
         </div>
 
         {/* Buttons */}
-        <div className="template-buttons columns">
-          <div className="column is-3 columns">
-            <div className="column is-half">
-              {/* Previous */}
-              {!isFirstPage && <a onClick={handlePrevious} className="button prev" > Previous </a>}
+        <Reveal effect="fadeIn" duration={500}>
+          <div className="template-buttons columns">
+            <div className="column is-3 columns">
+              <div className="column is-half">
+                {/* Previous */}
+                {!isFirstPage && <a onClick={handlePrevious} className="button prev" > Previous </a>}
+              </div>
+
+              <div className="column is-half">
+                {/* Skip */}
+                {!isLastPage && !canProgress && <a onClick={handleShowSkipModal} className="button skip"> Skip </a>}
+              </div>
             </div>
 
-            <div className="column is-half">
-              {/* Skip */}
-              {!isLastPage && !canProgress && <a onClick={handleShowSkipModal} className="button skip"> Skip </a>}
+
+            <div className="column is-1 is-offset-8">
+              {/* Got it */}
+              {!canProgress && <a onClick={handleGotIt} className="button"> Got it! </a>}
+
+              {/* Next */}
+              {!isLastPage && canProgress && <a onClick={handleNext} className="button"> Next </a>}
+              {/* Finish */}
+              {isLastPage && canProgress && !skipped && <a onClick={handleFinish} className="button"> Finish </a>}
+              {isLastPage && canProgress && skipped && <a onClick={handleFinishWithSkip} className="button"> Finish </a>}
             </div>
           </div>
-
-
-          <div className="column is-1 is-offset-8">
-            {/* Got it */}
-            {!canProgress && <a onClick={handleGotIt} className="button"> Got it! </a>}
-
-            {/* Next */}
-            {!isLastPage && canProgress && <a onClick={handleNext} className="button"> Next </a>}
-            {/* Finish */}
-            {isLastPage && canProgress && !skipped && <a onClick={handleFinish} className="button"> Finish </a>}
-            {isLastPage && canProgress && skipped && <a onClick={handleFinishWithSkip} className="button"> Finish </a>}
-          </div>
-        </div>
-
+        </Reveal>
 
 
 
