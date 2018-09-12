@@ -6,6 +6,7 @@ const authController = require('../controllers/authController');
 const coursesController = require('../controllers/coursesController');
 const usersController = require('../controllers/usersController');
 const pagesController = require('../controllers/pagesController');
+const quotesController = require('../controllers/quotesController');
 
 // Homepage - Login and Register will be on this page
 Router.route('/')
@@ -49,5 +50,9 @@ Router.route('/users/:userId')
   .get(usersController.show)
   .put(usersController.update)
   .delete(usersController.delete);
+
+// Quotes
+Router.route('/quotes')
+  .get(quotesController.index);
 
 module.exports = Router;
