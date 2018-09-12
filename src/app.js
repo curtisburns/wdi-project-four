@@ -22,7 +22,8 @@ import CourseCompleted from './components/courses/CourseCompleted';
 import CourseCompletedWithSkip from './components/courses/CourseCompletedWithSkip';
 import CourseCreateSave from './components/pages/CreateSave';
 import CoursesDelete from './components/courses/Delete';
-
+import HomeNotHome from './components/static/HomeNotHome';
+import RedirectFromHome from './components/common/RedirectFromHome';
 
 // Static
 import AuthBackground from './components/static/AuthBackground';
@@ -37,9 +38,13 @@ class App extends React.Component {
         <Route path="/auth/register" component={AuthRegister} />
         <Route path="/auth/login" component={AuthLogin} />
 
+        {/* Not the best fix... */}
+        <RedirectFromHome path="/" component={HomeNotHome} />
+
         <Switch>
           {/* Courses */}
           <Route path="/browsecourses" component={CoursesIndex} />
+
           {/* Course Creation */}
           <Route path="/coursecreation/:courseId/editpage/:pageId" component={PageOverview} />
           <Route path ="/coursecreation/:courseId/pages" component={CourseOverview} />
@@ -52,6 +57,7 @@ class App extends React.Component {
 
         {/* Modals */}
         <Switch>
+
           <Route path="*/newcourseintro" component={CoursesCreateIntro} />
           <Route path="*/newcoursesetup" component={CoursesNew} />
           <Route path="*/startnewcourse/:courseId" component={CoursesShow} />

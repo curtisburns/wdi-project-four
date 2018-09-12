@@ -25,12 +25,14 @@ export default class InfoPanel extends React.Component {
             axios.get(`/api/users/${Auth.currentUserId()}`)
               .then(res => {
                 const randomQuote = this.chooseRandom(quotes);
+                const infoSwitch = Math.floor(Math.random() * 2);
                 this.setState(
                   {
                     quotes: quotes,
                     courses: courses,
                     user: res.data,
-                    randomQuote
+                    randomQuote,
+                    infoSwitch
                   });
                 this.setUpState();
               });
@@ -115,8 +117,13 @@ export default class InfoPanel extends React.Component {
 
 
   render() {
+
     const randomQuote = this.state.randomQuote && this.state.randomQuote;
+    const suggestedCourse = this.state.suggestedCourse && this.state.suggestedCourse;
+    const infoSwitch = this.state.infoSwitch && this.state.infoSwitch;
     console.log(this.state);
+    console.log('quote', randomQuote);
+    console.log('course', suggestedCourse);
     return (
       <aside className='info-panel'>
         {!Auth.isAuthenticated() &&
@@ -125,30 +132,48 @@ export default class InfoPanel extends React.Component {
             <Link className="button" to="/auth/register"> Sign up </Link>
           </div>
         }
-        {this.state.quotes &&
+
+        {Auth.isAuthenticated() &&
           <div>
-            <h2>Did you know</h2>
-            <hr />
-            <h2>Featured course - {this.state.suggestedCourse && this.state.suggestedCourse.message}</h2>
-            <hr />
-            <div>
-            <h2>Food for thought</h2>
-            <hr />
+
+
+
+
+
+            {randomQuote && suggestedCourse && infoSwitch ?
+
               <div>
-                <p>{randomQuote.content}</p>
-                <p>{randomQuote.by}</p>
+                {suggestedCourse &&
+              <div className="suggestedCourse has-text-centered">
+                <h2>Featured course - {suggestedCourse.message}</h2>
+                <hr />
+                <Link to={`/browsecourses/startnewcourse/${suggestedCourse.suggestion && suggestedCourse.suggestion._id}`}>
+                  <img src={suggestedCourse.suggestion.imageUrl} />
+                  <h3>{suggestedCourse.suggestion.title}</h3>
+                  <img style={{height: 30, width: 30, marginTop: 40}} src="/assets/images/purepng.com-silver-starsilverchemical-elementshinywhitetomic-number-47metalservice-silver-star-1701528983711947cf.png" />
+                  <p>{suggestedCourse.suggestion.starRating || 0}</p>
+                </Link>
               </div>
-          </div>
+                }
+              </div>
+              :
+              <div className="suggestedCourse has-text-centered">
+                <h2>Food for thought</h2>
+                <hr />
+                <div>
+                  <p style={{marginTop: '50px'}}>{randomQuote && `"${randomQuote.content}"`}</p>
+                  <p style={{marginTop: '20px', fontSize: '.8em', fontWeight: '600'}}>{randomQuote && randomQuote.by}</p>
+                </div>
+              </div>
+
+
+
+
+            }
+
 
           </div>
-
-
-
         }
-
-
-
-
 
 
 
