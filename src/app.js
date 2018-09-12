@@ -39,9 +39,9 @@ class App extends React.Component {
         <Route path="/auth/login" component={AuthLogin} />
 
         {/* Not the best fix... */}
-        <RedirectFromHome path="/" component={HomeNotHome} />
 
         <Switch>
+          <RedirectFromHome exact path="/" component={HomeNotHome} />
           {/* Courses */}
           <Route path="/browsecourses" component={CoursesIndex} />
 

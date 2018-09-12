@@ -18,9 +18,8 @@ class Header extends React.Component {
     return(
       <header className="navbar is-fixed-top">
         <Link className="navbar-item" to="/browsecourses">
-          <label htmlFor="searchTerm" className="label">Browse courses</label>
+          <h2 htmlFor="searchTerm" className="label">Browse courses</h2>
         </Link>
-        <input style={{width: 200}}className="input" name="searchTerm"/>
         <div className="navbar-end">
 
           {!Auth.isAuthenticated() &&  <Link className="navbar-item" to="/auth/register">Register</Link>}
