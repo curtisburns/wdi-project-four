@@ -40,7 +40,6 @@ class PageContainer extends React.Component {
 
   handleTryAgain = () => {
     this.setState({ showTryAgain: false });
-    console.log(showTryAgain);
   }
 
 
@@ -109,10 +108,22 @@ class PageContainer extends React.Component {
     axios.put(`/api/users/${Auth.currentUserId()}`, user)
       .then(res => console.log(res.data));
     this.props.history.push(`/course/${courseId}/completed`);
+
+    //Add user to completedCourse
+
+    const newState = this.state;
+    if(!newState.completedCourse.some(user => user.toString() === user._id)) {
+      newState.completedCourse.push(user._id);
+      axios.put(`/api/courses/${courseId}`, newState)
+        .then(res => this.setState(res.data));
+      this.setState(newState);
+      console.log(this.state);
+    }
   }
 
 
   render() {
+    console.log(this.state);
     const pageNumber = this.state.pageNumber;
     const isFirstPage = this.state.pageNumber === 0;
     const isLastPage = this.state.pages && pageNumber === (this.state.pages.length-1);

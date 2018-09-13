@@ -27,6 +27,7 @@ export default class CoursesShow extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return(
       <section>
         <div className="background-overlay" onClick={this.handleCancel}>
@@ -65,14 +66,31 @@ export default class CoursesShow extends React.Component {
                     <img src="/assets/images/purepng.com-silver-starsilverchemical-elementshinywhitetomic-number-47metalservice-silver-star-1701528983711947cf.png" />
                   </div>
                   <div className="column is-11">
-                    {this.state.completedCourse.length === 0 ? <p className="course-show-info1">Be the first to complete this course!</p> : <p className="course-show-info1" >This course has received {this.state.starRating|| 0} stars from the {this.state.completedCourse} students who have completed this course.</p>
+                    {this.state.completedCourse.length === 0 ? <p className="course-show-info1">Be the first to complete this course!</p> : <p className="course-show-info1" >This course has received {this.state.starRating|| 0} stars from the {this.state.completedCourse.length} students who have completed this course.</p>
                     }
                   </div>
                 </div>
 
-
-
                 <p className="course-show-info2"> There are {this.state.enrolled && this.state.enrolled.length || 0} people currently enrolled on this course.</p>
+
+                <hr />
+                <p style={{fontSize: '1.2em'}}>Reviews</p>
+                <div className="columns is-multiline comments-container">
+                  {this.state.comments.map( comment =>
+                    <div className="column is-multiline is-12 columns" key={comment._id}>
+                      <div  className="column is-12 posted-by">
+                        <p>{comment.postedBy.username}</p>
+                      </div>
+                      <div className="column is-12 comment-content">
+                        <p>{comment.content}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+
+
+
 
               </div>
 

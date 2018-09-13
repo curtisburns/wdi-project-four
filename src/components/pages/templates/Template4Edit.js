@@ -19,7 +19,7 @@ export default function Template4Edit({page, handleChange, handleContentChange, 
           <h2 className="subtitle is-4">Page Edit</h2>
         </div>
 
-        <form onSubmit={handleEditSubmit}>
+        <form style={{paddingBottom: '30px'}} onSubmit={handleEditSubmit}>
 
           <Reveal effect="fadeIn">
 

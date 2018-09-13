@@ -25,6 +25,7 @@ function coursesIndex(req, res, next) {
 function coursesShow(req, res, next) {
   Course.findById(req.params.courseId)
     .populate('createdBy pages')
+    .populate('comments.postedBy' )
     .then(course => res.json(course))
     .catch(next);
 }

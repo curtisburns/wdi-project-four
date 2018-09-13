@@ -1,5 +1,14 @@
 // Users Show
-
+.settings{
+  font-size:2em;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  color: white;
+}
+.settings:hover {
+  color: rgba(66, 66, 66, .5);
+}
 .users-show {
   background: rgb(149, 247, 178);
   min-height: 80vh;

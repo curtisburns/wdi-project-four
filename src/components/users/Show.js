@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // Components
 import Footer from '../common/Footer';
@@ -13,8 +14,9 @@ export default class UsersShow extends React.Component {
   state = {}
 
   componentDidMount() {
+    console.log(this.props.match);
     axios.get(`/api/users/${Auth.currentUserId()}`)
-    .then(res => this.setState(res.data));
+      .then(res => this.setState(res.data));
   }
 
   render() {
@@ -27,6 +29,9 @@ export default class UsersShow extends React.Component {
 
             <div className="users-show-username">
               <p>{this.state.username}</p>
+              <Link to={`/users/${Auth.currentUserId()}/edit`}>
+                <i className="fas fa-cogs settings"></i>
+              </Link>
               <span/>
             </div>
 
