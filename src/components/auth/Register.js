@@ -13,6 +13,7 @@ import Auth from '../../lib/Auth';
 class AuthRegister extends React.Component {
   state = {
     passwordHidden: true,
+    countryOfResidence: 'United Kingdom',
     defaultValue: 'United Kingdom',
     errors: {}
   }

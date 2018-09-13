@@ -7,6 +7,7 @@ import FormField from '../common/FormField';
 
 //Lib
 import Auth from '../../lib/Auth';
+import Flash from '../../lib/Flash';
 
 
 class AuthLogin extends React.Component {
@@ -31,7 +32,14 @@ class AuthLogin extends React.Component {
         const user = res.data.user;
         Auth.setToken(token); // Essentially logged in - have token!
         Auth.setUserInfo(user); // Allows us to keep track of user's progress
+        Flash.setMessage('info', res.data.message);
         this.props.history.push('/browsecourses');
+      })
+      .catch(err => {
+        console.log(err.response);
+        Flash.setMessage('danger', 'Invalid email/password');
+        // redirect to the current page
+        this.props.history.push(this.props.location.pathname);
       });
   }
 
