@@ -15,7 +15,7 @@ class PageIndex extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/courses/${this.props.courseId}/pages`)
+    axios.get(`/api/courses/${this.props.courseId}/pages`, Auth.bearerHeader())
       .then(res => {
         this.setState({ pages: res.data });
       });

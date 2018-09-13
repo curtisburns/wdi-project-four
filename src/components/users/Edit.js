@@ -37,7 +37,7 @@ class UsersEdit extends React.Component {
 
 
   componentDidMount() {
-    axios.get(`/api/users/${Auth.currentUserId()}`)
+    axios.get(`/api/users/${Auth.currentUserId()}`, Auth.bearerHeader())
       .then(res => this.setState(res.data));
   }
 

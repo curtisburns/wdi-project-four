@@ -22,7 +22,7 @@ export default class InfoPanel extends React.Component {
         axios.get('/api/courses')
           .then(res => {
             courses = res.data;
-            axios.get(`/api/users/${Auth.currentUserId()}`)
+            axios.get(`/api/users/${Auth.currentUserId()}`, Auth.bearerHeader())
               .then(res => {
                 const randomQuote = this.chooseRandom(quotes);
                 const infoSwitch = Math.floor(Math.random() * 2);

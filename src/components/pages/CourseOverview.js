@@ -5,6 +5,10 @@ import axios from 'axios';
 import PagesIndex from './Index.js';
 import TemplatesIndex from './templates/Index.js';
 
+// Lib
+import Auth from '../../lib/Auth';
+
+
 class CourseOverview extends React.Component {
   state = {
     templates: [
@@ -20,7 +24,7 @@ class CourseOverview extends React.Component {
   handleClick = ({ target: { id } }) => {
     const newPage = { templateNumber: id };
     console.log('the event is', id);
-    axios.post(`/api/courses/${this.props.match.params.courseId}/pages`, newPage)
+    axios.post(`/api/courses/${this.props.match.params.courseId}/pages`, newPage, Auth.bearerHeader())
       .then(res => {
         console.log(`A new page has been created with template ${res.data.templateNumber}`);
         this.setState({ pageId: res.data._id});

@@ -1,5 +1,3 @@
-// TODO: Put secureRoute on after testing
-
 const express = require('express');
 const Router = express.Router();
 const authController = require('../controllers/authController');
@@ -7,6 +5,8 @@ const coursesController = require('../controllers/coursesController');
 const usersController = require('../controllers/usersController');
 const pagesController = require('../controllers/pagesController');
 const quotesController = require('../controllers/quotesController');
+const secureRoute = require('../lib/secureRoute');
+
 
 // Homepage - Login and Register will be on this page
 Router.route('/')
@@ -29,27 +29,27 @@ Router.route('/courses')
 
 Router.route('/courses/:courseId')
   .get(coursesController.show)
-  .put(coursesController.update)
-  .delete(coursesController.delete);
+  .put(secureRoute, coursesController.update)
+  .delete(secureRoute, coursesController.delete);
 
 // Pages
 Router.route('/courses/:courseId/pages')
-  .get(pagesController.index)
-  .post(pagesController.create);
+  .get(secureRoute, pagesController.index)
+  .post(secureRoute, pagesController.create);
 
 Router.route('/courses/:courseId/pages/:pageId')
-  .get(pagesController.show)
-  .put(pagesController.update)
-  .delete(pagesController.delete);
+  .get(secureRoute, pagesController.show)
+  .put(secureRoute, pagesController.update)
+  .delete(secureRoute, pagesController.delete);
 
 // Users
 Router.route('/users')
   .get(usersController.index);
 
 Router.route('/users/:userId')
-  .get(usersController.show)
-  .put(usersController.update)
-  .delete(usersController.delete);
+  .get(secureRoute, usersController.show)
+  .put(secureRoute, usersController.update)
+  .delete(secureRoute, usersController.delete);
 
 // Quotes
 Router.route('/quotes')

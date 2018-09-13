@@ -13,8 +13,17 @@ export default class CoursesShow extends React.Component {
   state = {}
 
   componentDidMount() {
-    axios.get(`/api/courses/${this.props.match.params.courseId}`)
+    axios.get(`/api/courses/${this.props.match.params.courseId}`, Auth.bearerHeader())
       .then(res => this.setState(res.data));
+  }
+
+  assignCommentDelete(commentId) {
+    return () => {
+      const newState = this.state;
+      newState.comments = newState.comments.filter(comment => comment._id.toString() !== commentId);
+      axios.put(`/api/courses/${this.state._id}`, newState, Auth.bearerHeader())
+        .then(res => this.setState(res.data));
+    };
   }
 
   handleCancel = () => {
@@ -27,7 +36,7 @@ export default class CoursesShow extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.state.comments);
     return(
       <section>
         <div className="background-overlay" onClick={this.handleCancel}>
@@ -48,6 +57,7 @@ export default class CoursesShow extends React.Component {
                 <div className="column is-half course-show-text-container">
                   <div className="course-show-top-text">
                     <h2 className="course-show-title">{this.state.title}</h2>
+                    <h4 style={{fontWeight: '500', marginBottom: '10px'}} className="course-show-created-by"> {this.state.subject}</h4>
                     <h4 className="course-show-created-by">Created by {this.state.createdBy.username}</h4>
                   </div>
                 </div>
@@ -84,6 +94,9 @@ export default class CoursesShow extends React.Component {
                       <div className="column is-12 comment-content">
                         <p>{comment.content}</p>
                       </div>
+                      {comment.postedBy._id.toString() === Auth.currentUserId() &&
+                        <a className="button comments-remove" onClick={this.assignCommentDelete(comment._id)}> Remove comment</a>
+                      }
                     </div>
                   )}
                 </div>
@@ -100,19 +113,29 @@ export default class CoursesShow extends React.Component {
               <div className="course-show-buttons">
 
                 {this.props.location.pathname.includes('coursecreateddetails') && Auth.currentUserId() === this.state.createdBy._id ?
+
                   <Button handleClick={this.handleCancel} buttonText="Close" buttonClass="" />
                   :
-                <Button handleClick={this.handleCancel} buttonText="Cancel" buttonClass="" />
+                  <Button handleClick={this.handleCancel} buttonText="Cancel" buttonClass="" />
                 }
 
 
                 {this.props.location.pathname.includes('coursecreateddetails') && Auth.currentUserId() === this.state.createdBy._id ?
+
                   <Button buttonText="Edit" buttonClass="" handleClick={this.handleEdit} />
                   :
-                  <Link to={`/course/${this.props.match.params.courseId}/page/${this.state.pages[0]._id}`} >
-                    <Button buttonText="Enrol and start!" buttonClass="" />
 
-                  </Link>
+                  <span>
+                    {this.props.location.pathname.includes('coursecompleteddetails') || this.state.completedCourse.some(user => user.toString() === Auth.currentUserId()) ?
+                      <Link to={`/course/${this.props.match.params.courseId}/page/${this.state.pages[0]._id}`} >
+                        <Button buttonText="Retake" buttonClass="" />
+                      </Link>
+                      :
+                      <Link to={`/course/${this.props.match.params.courseId}/page/${this.state.pages[0]._id}`} >
+                        <Button buttonText="Enrol and start!" buttonClass="" />
+                      </Link>
+                    }
+                  </span>
                 }
 
 
@@ -120,10 +143,10 @@ export default class CoursesShow extends React.Component {
 
 
             </div>
-          }
+            }
 
-        </div>
-      </Reveal>
+          </div>
+        </Reveal>
       </section>
     );
   }

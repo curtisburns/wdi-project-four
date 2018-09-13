@@ -16,7 +16,7 @@ class PageOverview extends React.Component {
   }
 
   componentDidMount(){
-    axios.get(`/api/courses/${this.props.match.params.courseId}/pages/${this.props.match.params.pageId}`)
+    axios.get(`/api/courses/${this.props.match.params.courseId}/pages/${this.props.match.params.pageId}`, Auth.bearerHeader())
       .then(res => this.setState(res.data));
   }
 

@@ -21,7 +21,7 @@ class PageContainer extends React.Component {
   }
 
   componentDidMount(){
-    axios.get(`/api/courses/${this.props.match.params.courseId}`)
+    axios.get(`/api/courses/${this.props.match.params.courseId}`, Auth.bearerHeader())
       .then(res => this.setState(res.data));
   }
 
@@ -52,7 +52,7 @@ class PageContainer extends React.Component {
     const nextPage = this.state.pageNumber+1;
     user.currentPage = this.state.pages[nextPage]._id;
     console.log('user is', user);
-    axios.put(`/api/users/${Auth.currentUserId()}`, user)
+    axios.put(`/api/users/${Auth.currentUserId()}`, user, Auth.bearerHeader())
       .then(res => Auth.setUserInfo(res.data));
     this.setState({ pageNumber: nextPage, canProgress: false });
     this.props.history.push(`/course/${this.props.match.params.courseId}/page/${this.state.pages[nextPage]._id}`);
@@ -62,7 +62,7 @@ class PageContainer extends React.Component {
     const user = Auth.getUserInfo();
     const previousPage = this.state.pageNumber-1;
     user.currentPage = this.state.pages[previousPage]._id;
-    axios.put(`/api/users/${Auth.currentUserId()}`, user)
+    axios.put(`/api/users/${Auth.currentUserId()}`, user, Auth.bearerHeader())
       .then(res => Auth.setUserInfo(res.data));
 
     this.setState({ pageNumber: previousPage, canProgress: false });
@@ -87,7 +87,7 @@ class PageContainer extends React.Component {
     const courseId = this.props.match.params.courseId;
     user.currentCourse = null;
     user.currentPage = null;
-    axios.put(`/api/users/${Auth.currentUserId()}`, user)
+    axios.put(`/api/users/${Auth.currentUserId()}`, user, Auth.bearerHeader())
       .then(res => console.log(res.data));
     this.props.history.push(`/course/${courseId}/_completed`);
   }
@@ -105,7 +105,7 @@ class PageContainer extends React.Component {
     user.currentPage = null;
     Auth.setUserInfo(user);
 
-    axios.put(`/api/users/${Auth.currentUserId()}`, user)
+    axios.put(`/api/users/${Auth.currentUserId()}`, user, Auth.bearerHeader())
       .then(res => console.log(res.data));
     this.props.history.push(`/course/${courseId}/completed`);
 
@@ -114,7 +114,7 @@ class PageContainer extends React.Component {
     const newState = this.state;
     if(!newState.completedCourse.some(user => user.toString() === user._id)) {
       newState.completedCourse.push(user._id);
-      axios.put(`/api/courses/${courseId}`, newState)
+      axios.put(`/api/courses/${courseId}`, newState, Auth.bearerHeader())
         .then(res => this.setState(res.data));
       this.setState(newState);
       console.log(this.state);

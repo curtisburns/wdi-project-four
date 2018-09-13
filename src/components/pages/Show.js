@@ -35,13 +35,13 @@ class PagesShow extends React.Component {
 
     } else {
       console.log(this.props);
-      axios.get(`/api/courses/${this.props.courseId}/pages/${this.props.pageId}`)
+      axios.get(`/api/courses/${this.props.courseId}/pages/${this.props.pageId}`, Auth.bearerHeader())
         .then(res => this.setState({ creationMode: false, ...res.data }));
       console.log('This is study mode');
       // Setting the current course on User
       const user = Auth.getUserInfo();
       user.currentCourse = this.props.courseId;
-      axios.put(`/api/users/${Auth.currentUserId()}`, user)
+      axios.put(`/api/users/${Auth.currentUserId()}`, user, Auth.bearerHeader())
         .then(res => Auth.setUserInfo(res.data));
     }
 
@@ -49,7 +49,7 @@ class PagesShow extends React.Component {
 
   componentDidUpdate(prevProps){
     if (!this.state.creationMode && this.props !== prevProps) {
-      axios.get(`/api/courses/${this.props.courseid}/pages/${this.props.pageId}`)
+      axios.get(`/api/courses/${this.props.courseid}/pages/${this.props.pageId}`, Auth.bearerHeader())
         .then(res => this.setState(res.data));
     }
   }

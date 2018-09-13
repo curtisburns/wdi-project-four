@@ -15,7 +15,7 @@ export default class UsersShow extends React.Component {
 
   componentDidMount() {
     console.log(this.props.match);
-    axios.get(`/api/users/${Auth.currentUserId()}`)
+    axios.get(`/api/users/${Auth.currentUserId()}`, Auth.bearerHeader())
       .then(res => this.setState(res.data));
   }
 
@@ -42,64 +42,72 @@ export default class UsersShow extends React.Component {
                 <p className="users-show-titles">Current course</p>
                 <div className="current-course-panel front-of-footer">
                   <div className="current-course-card">
-                    {currentCourse ?
+                    {currentCourse && currentCourse ?
                       <div>
                         <div className="columns is-multiline">
-                          <div className="column is-1">
-                            <img style={{ height: 60, width: 60, marginLeft: 10 }} src={currentCourse.imageUrl} />
-                          </div>
-                          <div className="column is-7 search-bar-course-title">
-                            {currentCourse .length > 70 ? <h2 >{`${currentCourse .title.substring(0, 70)}...`}</h2> :
-                              <h2>{currentCourse .title}</h2>
-                            }
-                          </div>
-                          <div className="column is-2 createdBy">
-                            <h2>Created by {currentCourse.createdBy && currentCourse.createdBy.username}</h2>
-                          </div>
-                          <div className="column is-1 columns is is-multiline course-index-rating is-mobile">
-                            <div className="column is-12-desktop is-6-mobile has-text-centered">
-                              <img src="/assets/images/purepng.com-silver-starsilverchemical-elementshinywhitetomic-number-47metalservice-silver-star-1701528983711947cf.png" />
+                          <div style={{height: 80}} className="columns is-multiline column is-6">
+                            <div className="column is-2">
+                              <img style={{ height: 50, width: 50, margin: 'auto' }} src={currentCourse.imageUrl} />
                             </div>
-                            <div className="column is-12-desktop is-6-mobile has-text-centered">
-                              <p className="subtitle is-7">{currentCourse.starRating || 0}</p>
+                            <div className="column is-10 search-bar-course-title">
+                              {currentCourse .length > 70 ? <h2 >{`${currentCourse .title.substring(0, 70)}...`}</h2> :
+                                <h2>{currentCourse .title}</h2>
+                              }
+                            </div>
+
+                            <div className="column is-12 createdBy has-text-centered">
+                              <h2> Created: {this.state.currentCourse && this.state.currentCourse.createdAt.split('T')[0]}</h2>
+                            </div>
+
+                            <div className="column is-12 createdBy has-text-centered">
+                              <h2>By: {currentCourse.createdBy && currentCourse.createdBy.username}</h2>
+                            </div>
+
+                          </div>
+                          <div style={{height: 80}} className="columns is-multiline column is-6">
+                            <div className="column is-12 createdBy has-text-centered">
+                              <h2>Currently enrolled: {this.state.currentCourse && this.state.currentCourse.enrolled.length}</h2>
+                            </div>
+
+                            <div className="column is-2 is-offset-5 createdBy has-text-centered">
+                              <div className="column is-12-desktop is-6-mobile has-text-centered">
+                                <img src="/assets/images/purepng.com-silver-starsilverchemical-elementshinywhitetomic-number-47metalservice-silver-star-1701528983711947cf.png" />
+                              </div>
+                              <div className="column is-12-desktop is-6-mobile has-text-centered">
+                                <p className="subtitle is-7">{currentCourse.starRating || 0}</p>
+                              </div>
                             </div>
                           </div>
                         </div>
+                      </div>
 
+                      : <p> You are not currently enrolled on any course </p>
+                    }
 
-                      {/* <p>Created by {this.state.currentCourse && this.state.currentCourse.createdBy.username}</p>
-                      <p>Currently enrolled: {this.state.currentCourse && this.state.currentCourse.enrolled.length}</p>
-                      <p>Stars: {this.state.currentCourse && this.state.currentCourse.starRating || 0}</p>
-                      <p> Time posted: {this.state.currentCourse && this.state.currentCourse.createdAt || 0}</p> */}
-
-                    </div>
-                    : <p> You are not currently enrolled on any course </p>
-                  }
-
+                  </div>
                 </div>
               </div>
+
+              <div className="column is-half">
+                <p className="users-show-titles">Courses Completed ({this.state.coursesCompleted.length})</p>
+                <CoursesCompleted coursesCompleted={this.state.coursesCompleted}/>
+              </div>
+
+
+              <div className="column is-half">
+                <p className="users-show-titles">Courses Created ({this.state.coursesCreated.length})</p>
+                <CoursesCreated coursesCreated={this.state.coursesCreated}/>
+              </div>
+
+
             </div>
 
-            <div className="column is-half">
-              <p className="users-show-titles">Courses Completed ({this.state.coursesCompleted.length})</p>
-              <CoursesCompleted coursesCompleted={this.state.coursesCompleted}/>
-            </div>
+          </section>
+        }
 
+        <Footer />
+      </div>
 
-            <div className="column is-half">
-              <p className="users-show-titles">Courses Created ({this.state.coursesCreated.length})</p>
-              <CoursesCreated coursesCreated={this.state.coursesCreated}/>
-            </div>
-
-
-          </div>
-
-        </section>
-      }
-
-      <Footer />
-    </div>
-
-  );
-}
+    );
+  }
 }

@@ -28,7 +28,7 @@ export default class CourseCompleted extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/courses/${this.props.match.params.courseId}`)
+    axios.get(`/api/courses/${this.props.match.params.courseId}`, Auth.bearerHeader())
       .then(res => this.setState(res.data));
   }
 
