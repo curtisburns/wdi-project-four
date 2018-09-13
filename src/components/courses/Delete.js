@@ -23,7 +23,7 @@ export default class CoursesDelete extends React.Component {
           .then(res => {
             Auth.setUserInfo(res.data);
             this.props.match.path.includes('delete') ?
-            this.props.history.push(`/users/${Auth.currentUserId()}`):
+              this.props.history.push(`/users/${Auth.currentUserId()}`):
               this.props.history.push('/browsecourses') ;
 
           });

@@ -23,6 +23,7 @@ const shuffledAnswers = shuffleAnswers();
 
 export default function Template4({page, handleShowSkipModal, handleNext, handlePrevious, handleFinish, handleFinishWithSkip, canProgress, handleGotIt, isFirstPage, isLastPage, skipped, handleMultipleChoice, creationMode}) {
 
+  const transparent = creationMode ? 'creation-mode' : '';
   return(
 
     <section className="t1-section" style={{height: '100%'}}>
@@ -91,8 +92,8 @@ export default function Template4({page, handleShowSkipModal, handleNext, handle
                 {page.elements && page.elements.filter(element => element.contentType === `answer${shuffledAnswers[0]}`)[0] &&
                   page.elements.filter(element => element.contentType === `answer${shuffledAnswers[0]}`)[0].content ?
 
-                  <div className="t4-answer">
-                    <p className={`answer${shuffledAnswers[0]}`} >
+                  <div data-ans={`answer${shuffledAnswers[0]}`} className="t4-answer">
+                    <p data-ans={`answer${shuffledAnswers[0]}`} className={`answer${shuffledAnswers[0]}`} >
                       {page.elements.filter(element => element.contentType === `answer${shuffledAnswers[0]}`)[0].content}
                     </p>
                     {canProgress && `answer${shuffledAnswers[0]}` === 'answer1' && <img src="https://gifimage.net/wp-content/uploads/2018/06/tick-gif.gif"/>}
@@ -114,8 +115,8 @@ export default function Template4({page, handleShowSkipModal, handleNext, handle
                 {page.elements && page.elements.filter(element => element.contentType === `answer${shuffledAnswers[1]}`)[0] &&
                   page.elements.filter(element => element.contentType === `answer${shuffledAnswers[1]}`)[0].content ?
 
-                  <div className="t4-answer">
-                    <p >
+                  <div data-ans={`answer${shuffledAnswers[1]}`} className="t4-answer">
+                    <p data-ans={`answer${shuffledAnswers[1]}`}>
                       {page.elements.filter(element => element.contentType === `answer${shuffledAnswers[1]}`)[0].content}
                     </p>
                     {canProgress && `answer${shuffledAnswers[1]}` === 'answer1' && <img src="https://gifimage.net/wp-content/uploads/2018/06/tick-gif.gif"/>}
@@ -136,8 +137,8 @@ export default function Template4({page, handleShowSkipModal, handleNext, handle
                 {page.elements && page.elements.filter(element => element.contentType === `answer${shuffledAnswers[2]}`)[0] &&
                   page.elements.filter(element => element.contentType === `answer${shuffledAnswers[2]}`)[0].content ?
 
-                  <div className="t4-answer">
-                    <p >
+                  <div data-ans={`answer${shuffledAnswers[2]}`} className="t4-answer">
+                    <p data-ans={`answer${shuffledAnswers[2]}`}>
                       {page.elements.filter(element => element.contentType === `answer${shuffledAnswers[2]}`)[0].content}
                     </p>
                     {canProgress && `answer${shuffledAnswers[2]}` === 'answer1' && <img src="https://gifimage.net/wp-content/uploads/2018/06/tick-gif.gif"/>}
@@ -158,8 +159,8 @@ export default function Template4({page, handleShowSkipModal, handleNext, handle
                 {page.elements && page.elements.filter(element => element.contentType === `answer${shuffledAnswers[3]}`)[0] &&
                   page.elements.filter(element => element.contentType === `answer${shuffledAnswers[3]}`)[0].content ?
 
-                  <div className="t4-answer">
-                    <p >
+                  <div data-ans={`answer${shuffledAnswers[3]}`} className="t4-answer">
+                    <p data-ans={`answer${shuffledAnswers[3]}`}>
                       {page.elements.filter(element => element.contentType === `answer${shuffledAnswers[3]}`)[0].content}
                     </p>
                     {canProgress && `answer${shuffledAnswers[3]}` === 'answer1' && <img src="https://gifimage.net/wp-content/uploads/2018/06/tick-gif.gif"/>}
@@ -183,7 +184,7 @@ export default function Template4({page, handleShowSkipModal, handleNext, handle
 
         {/* Buttons */}
         <Reveal effect="fadeIn" duration={500}>
-          <div className="template-buttons columns">
+          <div className={`${transparent} template-buttons columns` }>
             <div className="column is-3 columns">
               <div className="column is-half">
                 {/* Previous */}

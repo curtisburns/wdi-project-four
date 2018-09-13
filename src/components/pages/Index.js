@@ -35,6 +35,7 @@ class PageIndex extends React.Component {
 
   render() {
     console.log(this.props);
+    console.log(this.state.pages.length === 0);
     return(
       <section className="pages-index">
 
@@ -44,15 +45,22 @@ class PageIndex extends React.Component {
         </div>
 
         {/* Created pages */}
-        <div className="columns is-mobile is-multiline pages-index-container">
-          {this.state.pages && this.state.pages.map(page =>
-            <Reveal effect="fadeIn" key={page._id}>
-              <div onClick={this.assignCardClick(page._id)}  className="column is-12 pages-index-card" id={page._id}>
-                <p> {page.templateNumber} this is a page, need to decide on what information to display here.</p>
-              </div>
-            </Reveal>
-          )}
-        </div>
+        {this.state.pages.length === 0 ?
+          <Reveal effect="fadeIn" >
+            <p className="course-new-title"style={{marginTop: '60px', fontSize: '1.2em'}}>Add a page by selecting a template</p>
+          </Reveal>
+          :
+          <div className="columns is-mobile is-multiline pages-index-container">
+            {this.state.pages && this.state.pages.map(page =>
+              <Reveal effect="fadeIn" key={page._id}>
+                <div onClick={this.assignCardClick(page._id)}  className="column is-12 pages-index-card" id={page._id}>
+                  <p> {page.templateNumber} this is a page, need to decide on what information to display here.</p>
+                </div>
+              </Reveal>
+            )}
+          </div>
+
+        }
 
         {/* Pages Index Buttons */}
         <div className="pages-index-buttons columns is-mobile">

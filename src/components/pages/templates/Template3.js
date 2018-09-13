@@ -6,6 +6,7 @@ import Reveal from 'react-reveal/Reveal';
 
 
 export default function Template3({page, handleNext, handlePrevious, handleFinish, handleFinishWithSkip, canProgress, handleGotIt, isFirstPage, isLastPage, skipped, creationMode}) {
+  const transparent = creationMode ? 'creation-mode' : '';
   return(
     <section className="t3-section" style={{height: '100%'}}>
       <div style={{height: '95%'}}>
@@ -26,7 +27,7 @@ export default function Template3({page, handleNext, handlePrevious, handleFinis
 
         {/* Buttons */}
         <Reveal effect="fadeIn" duration={500}>
-          <div className="template-buttons columns">
+          <div className={`${transparent} template-buttons columns` }>
             <div className="column is-3 columns">
 
               <div className="column is-half">

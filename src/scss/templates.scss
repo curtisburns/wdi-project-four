@@ -182,11 +182,18 @@
   height: 100%;
 }
 
+
+
 .template-buttons a {
   font-family: 'Avenir next';
   font-weight: 500;
   color: black;
   background: rgb(149, 247, 178);
+}
+
+.creation-mode.template-buttons a {
+  background-color: transparentize(rgb(149, 247, 178), .8);
+  color: transparentize(black, .8);
 }
 
 .template-buttons .prev {
