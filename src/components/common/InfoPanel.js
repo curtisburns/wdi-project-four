@@ -140,10 +140,10 @@ export default class InfoPanel extends React.Component {
 
 
 
-            {randomQuote && suggestedCourse && infoSwitch ?
+            {randomQuote && suggestedCourse && suggestedCourse.suggestion && infoSwitch ?
 
               <div>
-                {suggestedCourse &&
+                {suggestedCourse.suggestion &&
               <div className="suggestedCourse has-text-centered">
                 <h2>Featured course - {suggestedCourse.message}</h2>
                 <hr />

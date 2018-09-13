@@ -46,15 +46,15 @@ class PageOverview extends React.Component {
     event.preventDefault();
     axios.put(`/api/courses/${this.props.match.params.courseId}/pages/${this.props.match.params.pageId}`, this.state, Auth.bearerHeader())
       .then(() => console.log('the page has been saved'));
-        this.props.match.path.includes('edit') ?
+    this.props.match.path.includes('edit') ?
       this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/editpages/`) :
-      this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/pages/`)
+      this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/pages/`);
   }
 
   handleEditCancel = () => {
     this.props.match.path.includes('edit') ? this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/editpages/`)
       :
-      this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/pages/`)
+      this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/pages/`);
   }
 
 

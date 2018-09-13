@@ -85,10 +85,6 @@ User.create(userData)
   .then(users => {
     console.log(`Created ${users.length} user(s)!`);
     courseData[0].createdBy = users[0]._id;
-    return Course.create(courseData);
-  })
-  .then(courses => {
-    console.log(`Created ${courses.length} course(s)!`);
     return Quote.create(quoteData);
   })
   .then(quotes => console.log(`Created ${quotes.length} quote(s)!`))

@@ -6,7 +6,6 @@ import Button from '../common/Button';
 import FormField from '../common/FormField';
 import Reveal from 'react-reveal/Reveal';
 import CountryDropdown from '../common/CountryDropdown';
-import { Redirect } from 'react-router-dom';
 
 //Lib
 import Auth from '../../lib/Auth';
