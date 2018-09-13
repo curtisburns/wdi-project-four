@@ -150,7 +150,7 @@ export default class InfoPanel extends React.Component {
                 <Link to={`/browsecourses/startnewcourse/${suggestedCourse.suggestion && suggestedCourse.suggestion._id}`}>
                   <img src={suggestedCourse.suggestion.imageUrl} />
                   <h3>{suggestedCourse.suggestion.title}</h3>
-                  <img style={{height: 30, width: 30, marginTop: 40}} src="/assets/images/purepng.com-silver-starsilverchemical-elementshinywhitetomic-number-47metalservice-silver-star-1701528983711947cf.png" />
+                  <img style={{height: 30, width: 30, marginTop: 20}} src="/assets/images/purepng.com-silver-starsilverchemical-elementshinywhitetomic-number-47metalservice-silver-star-1701528983711947cf.png" />
                   <p>{suggestedCourse.suggestion.starRating || 0}</p>
                 </Link>
               </div>

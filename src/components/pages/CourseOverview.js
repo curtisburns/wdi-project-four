@@ -24,11 +24,15 @@ class CourseOverview extends React.Component {
       .then(res => {
         console.log(`A new page has been created with template ${res.data.templateNumber}`);
         this.setState({ pageId: res.data._id});
-        this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/editpage/${this.state.pageId}`);
+        this.props.match.url.includes('edit') ?
+          this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/editpage/${this.state.pageId}`):
+          this.props.history.push(`/coursecreation/${this.props.match.params.courseId}/page/${this.state.pageId}`);
       });
   }
 
   render() {
+    console.log('hey',this.props.match.url);
+    const editMode = this.props.match.url.includes('edit');
     return(
       <section>
         <div className="columns">
@@ -38,7 +42,7 @@ class CourseOverview extends React.Component {
               handleClick={this.handleClick}/>
           </div>
           <div className="column is-3 pages-index-column">
-            <PagesIndex courseId={this.props.match.params.courseId}/>
+            <PagesIndex editMode={editMode} courseId={this.props.match.params.courseId}/>
           </div>
         </div>
       </section>

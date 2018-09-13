@@ -6,6 +6,9 @@ import axios from 'axios';
 import Button from '../common/Button';
 import Reveal from 'react-reveal/Reveal';
 
+// Lib
+import Auth from '../../lib/Auth';
+
 export default class CoursesShow extends React.Component {
   state = {}
 
@@ -18,15 +21,19 @@ export default class CoursesShow extends React.Component {
     this.props.history.push(this.props.match.params[0]);
   }
 
+  handleEdit = () => {
+    console.log(this.state, this.props);
+    this.props.history.push(`/coursecreation/${this.state._id}/editpages`);
+  }
+
   render() {
-    console.log(this.state.completedCourse);
     return(
       <section>
         <div className="background-overlay" onClick={this.handleCancel}>
         </div>
         <Reveal effect="fadeIn">
-        <div className="modal1 course-show-modal">
-          {this.state.title &&
+          <div className="modal1 course-show-modal">
+            {this.state.title &&
             <div>
 
               {/* Course image and Title */}
@@ -74,12 +81,25 @@ export default class CoursesShow extends React.Component {
 
               <div className="course-show-buttons">
 
+                {this.props.location.pathname.includes('coursecreateddetails') && Auth.currentUserId() === this.state.createdBy._id ?
+                  <Button handleClick={this.handleCancel} buttonText="Close" buttonClass="" />
+                  :
                 <Button handleClick={this.handleCancel} buttonText="Cancel" buttonClass="" />
-                <Link to={`/course/${this.props.match.params.courseId}/page/${this.state.pages[0]._id}`} >
-                <Button buttonText="Enroll and start!" buttonClass="" />
+                }
 
-              </Link>
+
+                {this.props.location.pathname.includes('coursecreateddetails') && Auth.currentUserId() === this.state.createdBy._id ?
+                  <Button buttonText="Edit" buttonClass="" handleClick={this.handleEdit} />
+                  :
+                  <Link to={`/course/${this.props.match.params.courseId}/page/${this.state.pages[0]._id}`} >
+                    <Button buttonText="Enrol and start!" buttonClass="" />
+
+                  </Link>
+                }
+
+
               </div>
+
 
             </div>
           }

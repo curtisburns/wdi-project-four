@@ -1,7 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Components
 import Reveal from 'react-reveal/Reveal';
+
+// Lib
+import Auth from '../../lib/Auth';
 
 export default function CoursesCompleted ({coursesCompleted}) {
   return(
@@ -11,8 +15,9 @@ export default function CoursesCompleted ({coursesCompleted}) {
         <p>{'You haven\'t completed any courses yet.'}</p> :
         coursesCompleted.map(course =>
 
-          <Reveal key={course._id} effect="fadeIn" >
-            <div className="columns courses-completed-card">
+          <Link to={`/users/${Auth.currentUserId()}/coursecompleteddetails/${course._id}`} key={course._id} >
+          <Reveal effect="fadeIn" >
+            <div style={{marginTop: '20px'}} className="columns courses-completed-card">
 
               {/* Thumbnail */}
               <div className="column is-2 has-text-centered courses-completed-index-thumbnail">
@@ -41,6 +46,7 @@ export default function CoursesCompleted ({coursesCompleted}) {
 
             </div>
           </Reveal>
+        </Link>
 
         )}
 

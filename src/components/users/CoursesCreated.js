@@ -1,18 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Components
 import Reveal from 'react-reveal/Reveal';
+
+// Lib
+import Auth from '../../lib/Auth';
 
 export default function CoursesCreated ({coursesCreated}) {
   return(
     <section className="courses-completed-panel front-of-footer">
 
       {coursesCreated.length === 0 ?
-        <p>{'You haven\'t completed any courses yet.'}</p> :
+        <p>{'You haven\'t created any courses yet.'}</p> :
         coursesCreated.map(course =>
 
           <Reveal key={course._id} effect="fadeIn" >
-            <div className="columns courses-completed-card">
+            <Link to={`/users/${Auth.currentUserId()}/coursecreateddetails/${course._id}`} key={course._id} >
+            <div style={{marginTop: '20px'}} className="columns courses-completed-card">
 
               {/* Thumbnail */}
               <div className="column is-2 has-text-centered courses-completed-index-thumbnail">
@@ -40,8 +45,8 @@ export default function CoursesCreated ({coursesCreated}) {
               </div>
 
             </div>
+          </Link>
           </Reveal>
-
         )}
 
 

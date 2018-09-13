@@ -34,6 +34,7 @@ class PageIndex extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return(
       <section className="pages-index">
 
@@ -71,11 +72,26 @@ class PageIndex extends React.Component {
             </div>
 
             <div className="column is-3">
-              {this.state.pages.length !== 0 && <Link className="button" to={`/coursecreation/${this.props.courseId}/pages/finish`}>Finish</Link>}
+              {this.props.editMode ?
+                <div>
+                  {this.state.pages.length !== 0 && <Link className="button" to={`/coursecreation/${this.props.courseId}/editpages/save`}>Finish</Link>}
+                </div>
+                :
+                <div>
+                  {this.state.pages.length !== 0 && <Link className="button" to={`/coursecreation/${this.props.courseId}/pages/finish`}>Finish</Link>}
+                </div>
+              }
+
             </div>
 
             <div className="column is-3">
-              <Link to={`/coursecreation/${this.props.courseId}/pages/quitcreation`} className="button">Quit</Link>
+              {this.props.editMode ?
+                <Link to={`/coursecreation/${this.props.courseId}/editpages/delete`} className="button">Delete</Link>
+                :
+                <Link to={`/coursecreation/${this.props.courseId}/pages/quitcreation`} className="button">Quit</Link>
+              }
+
+
             </div>
           </Reveal>
 

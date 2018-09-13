@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth from '../../lib/Auth';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 // Components
 import CoursesIndex from '../courses/Index';

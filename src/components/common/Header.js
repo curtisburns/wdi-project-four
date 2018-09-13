@@ -16,7 +16,7 @@ class Header extends React.Component {
   render() {
     console.log(this.props.history);
     return(
-      <header className="navbar is-fixed-top">
+      <header className="navbar is-fixed-top" style={{boxShadow: '0 1px 3px rgba(66,66,66,.5)'}}>
         <Link className="navbar-item" to="/browsecourses">
           <h2 htmlFor="searchTerm" className="label">Browse courses</h2>
         </Link>
