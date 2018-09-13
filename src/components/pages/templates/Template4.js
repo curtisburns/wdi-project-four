@@ -21,7 +21,7 @@ function shuffleAnswers() {
 const shuffledAnswers = shuffleAnswers();
 
 
-export default function Template4({page, handleShowSkipModal, handleNext, handlePrevious, handleFinish, handleFinishWithSkip, canProgress, handleGotIt, isFirstPage, isLastPage, skipped, handleMultipleChoice, creationMode}) {
+export default function Template4({page, handleShowSkipModal, handleNext, handlePrevious, handleFinish, handleFinishWithSkip, canProgress, isFirstPage, isLastPage, skipped, handleMultipleChoice, creationMode}) {
 
   const transparent = creationMode ? 'creation-mode' : '';
   return(

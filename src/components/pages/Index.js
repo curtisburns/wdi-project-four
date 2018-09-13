@@ -54,7 +54,7 @@ class PageIndex extends React.Component {
             {this.state.pages && this.state.pages.map(page =>
               <Reveal effect="fadeIn" key={page._id}>
                 <div onClick={this.assignCardClick(page._id)}  className="column is-12 pages-index-card" id={page._id}>
-                  <p> {page.templateNumber} this is a page, need to decide on what information to display here.</p>
+                  <p> Template used: {page.templateNumber}. Click on page to edit</p>
                 </div>
               </Reveal>
             )}

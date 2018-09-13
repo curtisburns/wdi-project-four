@@ -11,12 +11,7 @@ import Reveal from 'react-reveal/Reveal';
 import Auth from '../../lib/Auth';
 
 class CoursesNew extends React.Component {
-  state = {
-    title: 'An introduction to testing',
-    imageUrl: 'http://static.wixstatic.com/media/88e4c2_dde3ecf82909493f94bb32a60fe1a8c6~mv2.jpg',
-    subject: 'Computing',
-    description: 'This is a test course'
-  }
+  state = {}
 
   handleCancel = () => {
     // console.log('Cancel', this.props);

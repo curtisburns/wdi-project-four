@@ -10,7 +10,7 @@ import Button from '../../common/Button';
 import Reveal from 'react-reveal/Reveal';
 
 
-export default function Template4Edit({page, handleChange, handleContentChange, handleEditSubmit, handleEditCancel}) {
+export default function Template4Edit({page, handleContentChange, handleEditSubmit, handleEditCancel}) {
   return(
     <section>
       <div className="template-form">

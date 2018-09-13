@@ -12,10 +12,6 @@ import Auth from '../../lib/Auth';
 
 class AuthRegister extends React.Component {
   state = {
-    email: 'test@test.com',
-    username: 'testUser',
-    countryOfResidence: 'United Kingdom',
-    password: 'pass',
     passwordHidden: true,
     defaultValue: 'United Kingdom',
     errors: {}

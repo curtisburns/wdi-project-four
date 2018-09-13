@@ -43,6 +43,44 @@ main {
 
 // Footer
 
+.footer-links {
+  position: absolute;
+  bottom: 10px;
+  right: 200px;
+  z-index: 1;
+}
+
+.footer-links a {
+  position: relative;
+  display: block;
+  font-family: 'Avenir next';
+  font-weight: 300;
+  color: grey;
+  font-size: .8em;
+  margin: 10px 0;
+}
+
+.footer-links img {
+  position: absolute;
+  right: -180px;
+  height: 25px;
+}
+
+.footer-links .twitter {
+  bottom: 70px;
+  right: -180px;
+}
+
+.footer-links .instagram {
+  bottom: 35px;
+  right: -178px;
+}
+.footer-links .facebook {
+  bottom: 0px;
+  right: -178px;
+}
+
+
 .footer {
   position: relative;
   padding: 0;

@@ -6,8 +6,8 @@ import React from 'react';
 export default function Template5({page}) {
   return(
     <div>
-      <p>this is template {page.templateNumber}</p>
-      <p>Page five</p>
+      <p>This template {page.templateNumber}</p>
+      <p>Sorry - this is under construction</p>
     </div>
   );
 }
