@@ -13,6 +13,7 @@ export default function FormField(
     label2Style,
     dataType
   }) {
+  value = value || {};
   return(
     <div className='field'>
       <label className={`label ${labelStyle}`} htmlFor={name}>{label}</label>
@@ -22,7 +23,7 @@ export default function FormField(
         data-type={dataType}
         name={name}
         placeholder={placeholder}
-        value={value ? value[name] : ''}
+        value={value[name] || ''}
         type={type || 'text'}
         onChange={handleChange}/>
     </div>

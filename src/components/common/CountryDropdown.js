@@ -249,7 +249,7 @@ const countriesList = [
 function CountryDropdown({handleChange, defaultValue, fieldStyle}) {
   return(
     <div className={`${fieldStyle}`}>
-      <select  onChange={handleChange} defaultValue={defaultValue}>
+      <select name="countryOfResidence" onChange={handleChange} defaultValue={defaultValue}>
         {countriesList.map(country =>
           <option
             key={country}

@@ -14,7 +14,6 @@ class AuthRegister extends React.Component {
   state = {
     passwordHidden: true,
     countryOfResidence: 'United Kingdom',
-    defaultValue: 'United Kingdom',
     errors: {}
   }
 
@@ -31,6 +30,7 @@ class AuthRegister extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    console.log('Creating user', this.state);
     if(this.state.password !== this.state.confirmPassword) {
       const errors = this.state.errors;
       errors.passwordConfirmation = 'Passwords do not match!';
@@ -92,7 +92,7 @@ class AuthRegister extends React.Component {
               <label className="label register-label">Country of residence</label>
               <CountryDropdown
                 handleChange={this.handleChange}
-                defaultValue={this.state.defaultValue}
+                defaultValue={this.state.countryOfResidence}
                 fieldStyle="register-dropbox"
               />
             </div>
