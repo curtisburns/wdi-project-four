@@ -66,7 +66,7 @@ class PageIndex extends React.Component {
         <div className="pages-index-buttons columns is-mobile">
           <Reveal effect="fadeIn">
             <div className="column is-2">
-              {this.state.selectedPageId && <Link className="button" to={`/coursecreation/${this.props.courseId}/editpage/${this.state.selectedPageId}`}><i className="far fa-edit"></i></Link>}
+              {this.state.selectedPageId && <Link className="button" to={`/coursecreation/${this.props.courseId}/page/${this.state.selectedPageId}`}><i className="far fa-edit"></i></Link>}
 
             </div>
 

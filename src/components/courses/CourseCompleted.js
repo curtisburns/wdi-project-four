@@ -45,7 +45,7 @@ export default class CourseCompleted extends React.Component {
     event.preventDefault();
     const newState = this.state;
     if (this.state.starGiven) {
-      newState.starRating += 1;
+      newState.starRating ? newState.starRating += 1 : newState.starRating = 1;
     }
     newState.comments.push(this.state.newComment);
     axios.put(`/api/courses/${this.props.match.params.courseId}`, newState, Auth.bearerHeader())
@@ -125,7 +125,7 @@ export default class CourseCompleted extends React.Component {
                 </Reveal>
               </div>
             }
-            <img style={{position: 'absolute'}} onClick={!this.state.feedBackSubmitted && this.toggleCommentForm} className={`front-of-footer ${commentForm}`}  src="/assets/images/28.png" />
+            <img style={{position: 'absolute'}} onClick={!this.state.feedBackSubmitted ? this.toggleCommentForm : null } className={`front-of-footer ${commentForm}`}  src="/assets/images/28.png" />
           </div>
 
           {!this.state.toggleCommentForm &&

@@ -26,6 +26,8 @@ import CoursesDelete from './components/courses/Delete';
 import HomeNotHome from './components/static/HomeNotHome';
 import RedirectFromHome from './components/common/RedirectFromHome';
 import SecureRoutes from './components/common/SecureRoutes';
+import FlashMessages from './components/common/FlashMessages';
+
 
 // Static
 import AuthBackground from './components/static/AuthBackground';
@@ -34,6 +36,7 @@ class App extends React.Component {
   render() {
     return(
       <main>
+        <FlashMessages />
         <Header />
         {/* Auth - Background will render along with login and register */}
         <Route path="/auth" component={AuthBackground} />

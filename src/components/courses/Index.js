@@ -37,7 +37,7 @@ export default class Index extends React.Component {
   filterByOptions = (courses) => {
     return courses.filter(course =>
       this.state.filterOptions.some(option =>
-        option.active && course.subject.toLowerCase() === option.value
+        option.active && course.subject && course.subject.toLowerCase() === option.value
       )
     );
   }
@@ -56,14 +56,15 @@ export default class Index extends React.Component {
     axios.get('/api/courses')
       .then(res => {
         const allSubjects = res.data.length > 0 && res.data.map(course => {
-          return course.subject.charAt(0).toUpperCase() + course.subject.slice(1);
+
+          return course.subject && course.subject.charAt(0).toUpperCase() + course.subject.slice(1);
         });
 
         const removedDups = allSubjects.filter((option, pos) => allSubjects.indexOf(option) === pos );
 
         const filterOptions = removedDups.map(option => {
           return { label: option,
-            value: option.toLowerCase(),
+            value: option && option.toLowerCase(),
             active: true};
         });
         this.setState({ courses: res.data , filterOptions: filterOptions});

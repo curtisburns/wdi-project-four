@@ -5,7 +5,7 @@ const coursesController = require('../controllers/coursesController');
 const usersController = require('../controllers/usersController');
 const pagesController = require('../controllers/pagesController');
 const quotesController = require('../controllers/quotesController');
-const secureRoute = require('../lib/secureRoute');
+// const secureRoute = require('../lib/secureRoute');
 
 
 // Homepage - Login and Register will be on this page
@@ -29,27 +29,27 @@ Router.route('/courses')
 
 Router.route('/courses/:courseId')
   .get(coursesController.show)
-  .put(secureRoute, coursesController.update)
-  .delete(secureRoute, coursesController.delete);
+  .put(coursesController.update)
+  .delete(coursesController.delete);
 
 // Pages
 Router.route('/courses/:courseId/pages')
-  .get(secureRoute, pagesController.index)
-  .post(secureRoute, pagesController.create);
+  .get(pagesController.index)
+  .post(pagesController.create);
 
 Router.route('/courses/:courseId/pages/:pageId')
-  .get(secureRoute, pagesController.show)
-  .put(secureRoute, pagesController.update)
-  .delete(secureRoute, pagesController.delete);
+  .get(pagesController.show)
+  .put(pagesController.update)
+  .delete(pagesController.delete);
 
 // Users
 Router.route('/users')
   .get(usersController.index);
 
 Router.route('/users/:userId')
-  .get(secureRoute, usersController.show)
-  .put(secureRoute, usersController.update)
-  .delete(secureRoute, usersController.delete);
+  .get(usersController.show)
+  .put(usersController.update)
+  .delete(usersController.delete);
 
 // Quotes
 Router.route('/quotes')

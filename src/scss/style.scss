@@ -89,6 +89,7 @@ main {
 .footer-gradient, .footer-main {
   position: absolute;
   bottom: -15px;
+  width: 100%;
 }
 
 .footer-gradient {
@@ -251,7 +252,7 @@ main {
   width: 18vw;
   height: 70vh;
   top: 110px;
-  left: -230px;
+  left: -18vw;
   box-shadow: 0 5px 10px rgba( 66,66,66,.5);
   transition: all 1s;
   border-radius: 6px;
