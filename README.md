@@ -208,6 +208,7 @@ ___
 
 Here is a list of where I would take this project in the future:
 
+* Name it!
 * Fix bugs! 
   * When giving a star but no feedback, an empty comment is created on the show page and deleting this causes an error.
   * If you have not completed any courses, the suggestions that are based on your favourite subject a 'null'.
@@ -216,10 +217,10 @@ Here is a list of where I would take this project in the future:
 * Finish adding functionality to resume a course where students left off.
 * Refactor - I would like to look into how other larger projects are modularised so that maintainance and debugging are more manageable. This would also make things easier for scalability. I think this is one of the more valuable things to learn about as I look into making more complex projects, I feel this approach to structuring code in this way lends itself well to the capabilities of React.js.
 * Add statistics for course creators:
-  ** Number of people currently enrolled (never got round to fully implementing this).
-  ** Heat map to show which countries students who have taken the course reside in.
-  ** Useful ratios such as completed to total enrolled.
-  ** Which pages are skipped, time to complete etc.
+  * Number of people currently enrolled (never got round to fully implementing this).
+  * Heat map to show which countries students who have taken the course reside in.
+  * Useful ratios such as completed to total enrolled.
+  * Which pages are skipped, time to complete etc.
 * Chat rooms or forums for people taking a course so that teachers and students can discuss ideas and approaches to problems.
 * Create a private spaces for students and teachers belonging to schools so that homework and private assignments/courses can be shared.
 * Admins and report function to be able to manage content.
