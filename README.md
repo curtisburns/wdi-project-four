@@ -222,7 +222,7 @@ Here is a list of where I would take this project in the future:
   * Useful ratios such as completed to total enrolled.
   * Which pages are skipped, time to complete etc.
 * Chat rooms or forums for people taking a course so that teachers and students can discuss ideas and approaches to problems.
-* Create a private spaces for students and teachers belonging to schools so that homework and private assignments/courses can be shared.
+* Create private spaces for students and teachers at schools so that homework and private assignments/courses can be shared.
 * Admins and report function to be able to manage content.
 * Many more - a project is never finished!
   
