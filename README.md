@@ -1,7 +1,9 @@
 # wdi-project-four
 Final project - General Assembly - Course-provider/builder
 
-PUT OPENING IMAGE HERE
+<p align="center">
+  <img height=380 alt="register" src="./screenshots/site/hero.png">
+</p>
 
 [Visit the Course builder app on Heroku](https://ga-course-builder.herokuapp.com)
 
@@ -77,33 +79,112 @@ The idea behind this project was that a user could not only take courses for fre
 
 ## Final Product
 
-## Register/Login
+## Login
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/login.png">
+</p>
+
+## Login - Welcome
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/login-welcome.png">
+</p>
 
 ## Course Index
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/course-index.png">
+</p>
 
 ## Course Index - Filter
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/filter.png">
+</p>
 
-## Course creation - Overview
+## Course creation - Intro
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/course-create-tutorial.png">
+</p>
 
-## Template 1
+## Course creation - Form
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/course-create.png">
+</p>
 
-## Template 2
+## Course creation - Course Overview
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/course-templates.png">
+</p>
 
-## Template 3
+## Course creation - Templates
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/course-create-3.png">
+</p>
 
-## Template 4
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/course-create-1.png">
+</p>
 
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/course-create-2.png">
+</p>
 
-## Course show
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/creation-finish.png">
+</p>
 
-## Course Progression (as student)
+## Course Show
 
-## Course Completion
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/show-1.png">
+</p>
 
-## Course Completion - Feedback
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/show-2.png">
+</p>
+
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/show-4.png">
+</p>
+
+## Page Show
+
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/course1.png">
+</p>
+
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/multiple choice.png">
+</p>
+
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/wrong-answer.png">
+</p>
+
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/skip.png">
+</p>
+
+## Course Finish
+
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/finish-skip.png">
+</p>
+
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/finish.png">
+</p>
+
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/finish-2.png">
+</p>
 
 ## User Profile
+
+<p align="center">
+  <img height=450 alt="register" src="./screenshots/site/user-profile.png">
+</p>
+
 ___
+
 # Approach taken
 
 Having placed more focus on planning this project, I aimed to break each part into it's own component as is intended with React.js, which I enjoyed doing. When it came to transitioning between creation mode and study mode, I wanted to make components that could be used in both scenarios. This can be seen in the 'Page Show' and template components, where the show component will change it's behaviour based on how information is passed to it (different keys on the state). I also had a chance to experiment with dynamic rendering, so that any page could be rendered based on the template number assigned to it, despite them being different components.\
