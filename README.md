@@ -1,5 +1,5 @@
 # wdi-project-four
-Final project - General Assembly - Course-provider/builder
+Final project - General Assembly - Online Course Platform
 
 <p align="center">
   <img height=380 alt="register" src="./screenshots/site/hero.png">
