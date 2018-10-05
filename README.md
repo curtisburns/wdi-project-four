@@ -69,7 +69,7 @@ ___
 
 ## Styling
 
-In project three, I had learned that having a design to go by really helped with planning the structure of the site and decided to do this for project four. It was also a good opportunity to improve my skills on sketch.\
+In project three, I had learned that having a design to go by really helped with planning the structure of the site and decided to do this for project four. It was also a good opportunity to improve my skills on sketch.
 
 The style I went for was a simple, clean yet slightly colourful/playful theme as I felt this would work well for an app that I intended to be used by all ages. I wanted to consider the UX a little more than I had done in previous projects, and to do that I needed to ensure I had more time to focus on styling with CSS and planning ahead with the designs certainly helped.
 
@@ -192,16 +192,15 @@ Having placed more focus on planning this project, I aimed to break each part in
 I had decided the MVP to be the ability to create a simple course, and take the course. Th option to rate, filter, suggest courses based on user preferences and any other additional function were a bonus. While I felt I had achieved this, I wish I could have managed my time better to allow myself to add even more functionality. Much time was lost due to the styling, I was far from DRY doing this and if I did it again, I would be smarter with my classes and SCSS variables.
 
 ___
+# Blockers
+
+My main blocker was the styling. As I tend to try and write code that is concise and efficient, when it came to the styling I felt I could have refactored a lot. Overall I was very pleased with the look and feel of the site, but I know that if I had to make any changes to it, I had have to scour through a large number of classes across multiple SCSS files to change the same thing. Had I used a bit more foresight as to which styles would be common throughout the site, I could have been a bit smarter when applying classes to elements.
+___
 # Wins
 
 A big win for me was getting the pages to load dynamically based on the templates used to create them. This had implications for scalability as I could add more templates in future and rely on the fact that the 'Page Show' component would handle this if I imported the new template into it.
 
 Another win would be the overall result of my work by deadline day. I was mostly satisfied with what I had achieved in a week, and was excited about the prospect that as is, I could construct and have people take simple courses. I was also pleased about the ease at which this could be done, which was my intention for the project. Overall I had a lot of fun doing this, and learnt a great deal about using React.js and myself as a coder.
-
-___
-# Blockers
-
-My main blocker was the styling. As I tend to try and write code that is concise and efficient, when it came to the styling I felt I could have refactored a lot. Overall I was very pleased with the look and feel of the site, but I know that if I had to make any changes to it, I had have to scour through a large number of classes across multiple SCSS files to change the same thing. Had I used a bit more foresight as to which styles would be common throughout the site, I could have been a bit smarter when applying classes to elements.
 
 ___
 # Future features
