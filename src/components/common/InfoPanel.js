@@ -136,10 +136,6 @@ export default class InfoPanel extends React.Component {
         {Auth.isAuthenticated() &&
           <div>
 
-
-
-
-
             {randomQuote && suggestedCourse && suggestedCourse.suggestion && infoSwitch ?
 
               <div>
@@ -166,18 +162,9 @@ export default class InfoPanel extends React.Component {
                 </div>
               </div>
 
-
-
-
             }
-
-
           </div>
         }
-
-
-
-
       </aside>
     );
 
