@@ -44,11 +44,11 @@ class AuthRegister extends React.Component {
         this.props.history.push('/browsecourses');
       })
       .catch(err => {
-        console.log('errors are', err);
+        // console.log('errors are', err);
         const oldErrors = this.state.errors;
         const newErrors = err.response.data.response;
         const errors = { ...oldErrors, ...newErrors };
-        console.log(err.response.data.response);
+        // console.log(err.response.data.response);
         this.setState({ errors });
       });
   }
